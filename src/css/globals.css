@@ -92,6 +92,11 @@ body {
 }
 /* text-point color */
 
+.scrollbar-hide {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
 img {
   -webkit-user-select: none; /* Safari용 */
   -moz-user-select: none; /* Firefox용 */

@@ -9,7 +9,7 @@ interface Props {
 export default function Menu({ close }: Props) {
   return (
     <motion.nav
-      className="fixed left-0 top-0 h-screen w-[400px] max-w-[50%] z-50 bg-white text-black"
+      className="absolute left-0 top-0 h-screen w-[400px] max-w-[50%] bg-white text-black z-50"
       initial={{ x: '-100%' }}
       animate={{ x: 0 }}
       exit={{ x: '-100%' }}

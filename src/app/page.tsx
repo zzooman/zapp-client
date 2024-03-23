@@ -7,8 +7,8 @@ import FeedsList from '@/components/feeds/FeedsList';
 export default function Home() {
   return (
     <Container>
-      <Header fixed menu />
-      <main className="flex justify-center min-h-screen h-max w-full m-auto">
+      <Header menu />
+      <main className="flex justify-center min-h-screen h-max w-full m-auto overflow-y-auto">
         <FeedsList />
       </main>
       <Footer />
