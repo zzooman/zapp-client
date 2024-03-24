@@ -32,7 +32,7 @@ export default function Footer() {
 
   return (
     <footer
-      className={`fixed bottom-0 left-0 w-full h-16 border-t-[1px] border-t-slate-600 bg-slate-900 transition-opacity ${
+      className={`absolute bottom-0 left-0 w-full h-16 border-t-[1px] border-t-slate-600 bg-slate-900 transition-opacity ${
         down ? 'opacity-50' : 'opacity-1'
       }`}
     >

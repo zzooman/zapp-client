@@ -9,7 +9,7 @@ import { faHeart as LineHeart, faBookmark as LineBookmark, faComment } from '@fo
 export default function FeedDetail() {
   return (
     <Container>
-      <Header fixed back title="Post" />
+      <Header back title="Post" />
       <main className="mt-[50px]">
         <section className="mt-2">
           <article className="p-3 border-b border-b-slate-100">

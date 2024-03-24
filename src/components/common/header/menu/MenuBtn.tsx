@@ -5,7 +5,7 @@ import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { useState } from 'react';
 import { AnimatePresence } from 'framer-motion';
 import Menu from './Menu';
-import Dim from '../Dim';
+import Dim from '../../Dim';
 
 export default function MenuBtn() {
   const [open, setOpen] = useState(false);
