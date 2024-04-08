@@ -16,7 +16,7 @@ export default function SignupForm() {
   const { register, handleSubmit } = useForm<ISignupForm>();
 
   const onSubmit: SubmitHandler<ISignupForm> = data => {
-    API.signup({ ...data, location: 'Seoul' });
+    API.signup(data);
   };
 
   return (

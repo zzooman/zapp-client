@@ -1,41 +1,32 @@
 'use client';
 
-import { ILoginForm, ILoginResponse, caremateLogin } from '@/lib/api';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
-import { useMutation } from '@tanstack/react-query';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import Container from '@/components/common/Container';
 import Header from '@/components/common/header/Header';
+import API from '@/api/api';
+
+export interface ILoginForm {
+  username: string;
+  password: string;
+}
 
 export default function Login() {
-  const router = useRouter();
-  const { mutate, error } = useMutation<ILoginResponse, Error, ILoginForm>({
-    mutationFn: form => caremateLogin(form),
-    onSuccess: onLoginSuccess,
-  });
-
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<ILoginForm>();
-
   const onSubmit: SubmitHandler<ILoginForm> = data => {
-    mutate(data);
+    API.login(data);
   };
 
-  function onLoginSuccess(data: ILoginResponse) {
-    if (data.code === 400) return alert(data.message);
-    localStorage.setItem('cgs-auth', data.data.access_token);
-    router.push('/');
-  }
+  const {
+    handleSubmit,
+    register,
+    formState: { errors },
+  } = useForm<ILoginForm>();
 
   return (
     <Container>
       <Header />
       <main>
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col justify-center items-start h-screen w-full">
           <div className="space-y-2">
             <label htmlFor="username">Username</label>
             <input
@@ -43,24 +34,15 @@ export default function Login() {
               placeholder="username"
               required
               type="text"
-              {...register('email', {
+              {...register('username', {
                 required: { value: true, message: '입력해야해' },
                 minLength: { value: 4, message: '4글자는 넘겨야지 임마' },
                 maxLength: { value: 12, message: '12글자 넘기지마' },
               })}
             />
           </div>
-          <div className="h-4 mt-0">
-            {errors.email && <span className="text-red-400 text-sm">{errors.email.message}</span>}
-          </div>
-
           <div className="space-y-2 mt-3">
-            <div className="flex justify-between items-center">
-              <label htmlFor="password">Password</label>
-              <Link className="text-sm underline" href="#">
-                Forgot password?
-              </Link>
-            </div>
+            <label htmlFor="password">Password</label>
             <input
               id="password"
               required
@@ -72,16 +54,13 @@ export default function Login() {
               })}
             />
           </div>
-          <div className="h-4 mt-0">
-            {errors.password && <span className="text-red-400 text-sm">{errors.password.message}</span>}
-          </div>
 
-          <div className="flex items-center mt-4">
+          {/* <div className="flex items-center mt-4">
             <input className="mr-2" id="remember" type="checkbox" {...register('remember')} />
             <label className="text-sm" htmlFor="remember">
               Remember me
             </label>
-          </div>
+          </div> */}
           <button className="w-full mt-4 bg-slate-900 text-white" type="submit">
             Login
           </button>
