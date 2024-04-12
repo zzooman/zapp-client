@@ -11,7 +11,7 @@ export interface ILoginForm {
   password: string;
 }
 
-export default function Login() {
+export default function LoginPage() {
   const onSubmit: SubmitHandler<ILoginForm> = data => {
     API.login(data);
   };

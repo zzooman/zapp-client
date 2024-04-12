@@ -106,6 +106,8 @@ img {
   pointer-events: none;
 }
 
+textarea,
 input {
   color: black;
+  outline: none;
 }

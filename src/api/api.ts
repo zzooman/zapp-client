@@ -16,6 +16,7 @@ export async function login(data: ILoginForm) {
     method: 'POST',
     body: JSON.stringify(data),
     headers: { 'Content-Type': 'application/json' },
+    credentials: 'include',
   });
 }
 

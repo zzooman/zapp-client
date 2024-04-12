@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart as Heart, faBookmark as Bookmark, faChartSimple, faShare } from '@fortawesome/free-solid-svg-icons';
 import { faHeart as LineHeart, faBookmark as LineBookmark, faComment } from '@fortawesome/free-regular-svg-icons';
 
-export default function FeedDetail() {
+export default function FeedDetailPage() {
   return (
     <Container>
       <Header back title="Post" />
