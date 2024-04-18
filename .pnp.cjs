@@ -44,6 +44,7 @@ const RAW_RUNTIME_STATE =
           ["react", "npm:18.2.0"],\
           ["react-dom", "virtual:f07464c37ca04a40ede0ee59325345ae4210016424eafee5450c11b7b98e537f542f55e4b19ff7b0ef1cbb8d8b88d58eef1cee1c50472ba9f7242ad1f5695a34#npm:18.2.0"],\
           ["react-hook-form", "virtual:f07464c37ca04a40ede0ee59325345ae4210016424eafee5450c11b7b98e537f542f55e4b19ff7b0ef1cbb8d8b88d58eef1cee1c50472ba9f7242ad1f5695a34#npm:7.49.2"],\
+          ["swiper", "npm:11.1.1"],\
           ["tailwindcss", "npm:3.4.0"],\
           ["tailwindcss-animate", "virtual:f07464c37ca04a40ede0ee59325345ae4210016424eafee5450c11b7b98e537f542f55e4b19ff7b0ef1cbb8d8b88d58eef1cee1c50472ba9f7242ad1f5695a34#npm:1.0.7"],\
           ["typescript", "patch:typescript@npm%3A5.3.3#optional!builtin<compat/typescript>::version=5.3.3&hash=e012d7"]\
@@ -4508,6 +4509,15 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["swiper", [\
+      ["npm:11.1.1", {\
+        "packageLocation": "./.yarn/cache/swiper-npm-11.1.1-fbb4753780-02ded86e50.zip/node_modules/swiper/",\
+        "packageDependencies": [\
+          ["swiper", "npm:11.1.1"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["tailwindcss", [\
       ["npm:3.4.0", {\
         "packageLocation": "./.yarn/cache/tailwindcss-npm-3.4.0-e59fbdee04-0a1cef7468.zip/node_modules/tailwindcss/",\
@@ -5013,6 +5023,7 @@ const RAW_RUNTIME_STATE =
           ["react", "npm:18.2.0"],\
           ["react-dom", "virtual:f07464c37ca04a40ede0ee59325345ae4210016424eafee5450c11b7b98e537f542f55e4b19ff7b0ef1cbb8d8b88d58eef1cee1c50472ba9f7242ad1f5695a34#npm:18.2.0"],\
           ["react-hook-form", "virtual:f07464c37ca04a40ede0ee59325345ae4210016424eafee5450c11b7b98e537f542f55e4b19ff7b0ef1cbb8d8b88d58eef1cee1c50472ba9f7242ad1f5695a34#npm:7.49.2"],\
+          ["swiper", "npm:11.1.1"],\
           ["tailwindcss", "npm:3.4.0"],\
           ["tailwindcss-animate", "virtual:f07464c37ca04a40ede0ee59325345ae4210016424eafee5450c11b7b98e537f542f55e4b19ff7b0ef1cbb8d8b88d58eef1cee1c50472ba9f7242ad1f5695a34#npm:1.0.7"],\
           ["typescript", "patch:typescript@npm%3A5.3.3#optional!builtin<compat/typescript>::version=5.3.3&hash=e012d7"]\
