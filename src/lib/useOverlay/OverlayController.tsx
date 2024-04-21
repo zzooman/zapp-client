@@ -1,6 +1,7 @@
 import { Ref, forwardRef, useCallback, useImperativeHandle, useState } from 'react';
 
-export type CreateOverlayElement = (props: { isOpen: boolean; close: () => void; exit: () => void }) => JSX.Element;
+export type OverlayElementProps = { isOpen: boolean; close: () => void; exit: () => void };
+export type CreateOverlayElement = (props: OverlayElementProps) => JSX.Element;
 export interface OverlayControlRef {
   close: () => void;
 }

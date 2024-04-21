@@ -1,4 +1,4 @@
-import Cat from '../../assets/images/cat.jpg';
+import Cat from '../../../assets/images/cat.jpg';
 import Feed from './Feed';
 
 const DUMMY = [

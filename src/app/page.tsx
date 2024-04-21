@@ -1,9 +1,9 @@
-import ButtonCreateFeed from '@/components/common/ButtonCreateFeed';
-import Container from '@/components/common/Container';
-import Footer from '@/components/common/footer/Footer';
-import Header from '@/components/common/header/Header';
+import ButtonCreateFeed from '@/app/_components/common/ButtonCreateFeed';
+import Container from '@/app/_components/common/Container';
+import Footer from '@/app/_components/common/footer/Footer';
+import Header from '@/app/_components/common/header/Header';
 
-import FeedsList from '@/components/feeds/FeedsList';
+import FeedsList from '@/app/_components/feeds/FeedsList';
 
 export default function HomePage() {
   return (

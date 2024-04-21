@@ -1,6 +1,6 @@
 'use client';
-import Container from '@/components/common/Container';
-import { FlexBox } from '@/components/common/ui/FlexBox';
+import Container from '@/app/_components/common/Container';
+import { FlexBox } from '@/app/_components/common/ui/FlexBox';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';

@@ -1,4 +1,4 @@
-import Container from '@/components/common/Container';
+import Container from '@/app/_components/common/Container';
 
 interface Props {
   children: React.ReactNode;

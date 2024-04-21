@@ -1,5 +1,5 @@
-import Container from '@/components/common/Container';
-import Header from '@/components/common/header/Header';
+import Container from '@/app/_components/common/Container';
+import Header from '@/app/_components/common/header/Header';
 import Image from 'next/image';
 import Cat from '@/assets/images/cat.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';

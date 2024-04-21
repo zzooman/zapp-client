@@ -38,7 +38,7 @@ const RAW_RUNTIME_STATE =
           ["autoprefixer", "virtual:f07464c37ca04a40ede0ee59325345ae4210016424eafee5450c11b7b98e537f542f55e4b19ff7b0ef1cbb8d8b88d58eef1cee1c50472ba9f7242ad1f5695a34#npm:10.4.16"],\
           ["eslint", "npm:8.56.0"],\
           ["eslint-config-next", "virtual:f07464c37ca04a40ede0ee59325345ae4210016424eafee5450c11b7b98e537f542f55e4b19ff7b0ef1cbb8d8b88d58eef1cee1c50472ba9f7242ad1f5695a34#npm:14.0.4"],\
-          ["framer-motion", "virtual:f07464c37ca04a40ede0ee59325345ae4210016424eafee5450c11b7b98e537f542f55e4b19ff7b0ef1cbb8d8b88d58eef1cee1c50472ba9f7242ad1f5695a34#npm:10.18.0"],\
+          ["framer-motion", "virtual:f07464c37ca04a40ede0ee59325345ae4210016424eafee5450c11b7b98e537f542f55e4b19ff7b0ef1cbb8d8b88d58eef1cee1c50472ba9f7242ad1f5695a34#npm:11.1.7"],\
           ["next", "virtual:f07464c37ca04a40ede0ee59325345ae4210016424eafee5450c11b7b98e537f542f55e4b19ff7b0ef1cbb8d8b88d58eef1cee1c50472ba9f7242ad1f5695a34#npm:14.0.4"],\
           ["postcss", "npm:8.4.32"],\
           ["react", "npm:18.2.0"],\
@@ -76,25 +76,6 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["@babel/runtime", "npm:7.23.7"],\
           ["regenerator-runtime", "npm:0.14.1"]\
-        ],\
-        "linkType": "HARD"\
-      }]\
-    ]],\
-    ["@emotion/is-prop-valid", [\
-      ["npm:0.8.8", {\
-        "packageLocation": "./.yarn/cache/@emotion-is-prop-valid-npm-0.8.8-261a0f2426-f6be625f06.zip/node_modules/@emotion/is-prop-valid/",\
-        "packageDependencies": [\
-          ["@emotion/is-prop-valid", "npm:0.8.8"],\
-          ["@emotion/memoize", "npm:0.7.4"]\
-        ],\
-        "linkType": "HARD"\
-      }]\
-    ]],\
-    ["@emotion/memoize", [\
-      ["npm:0.7.4", {\
-        "packageLocation": "./.yarn/cache/@emotion-memoize-npm-0.7.4-5648cf11b8-b2376548fc.zip/node_modules/@emotion/memoize/",\
-        "packageDependencies": [\
-          ["@emotion/memoize", "npm:0.7.4"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -2186,18 +2167,19 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["framer-motion", [\
-      ["npm:10.18.0", {\
-        "packageLocation": "./.yarn/cache/framer-motion-npm-10.18.0-5bde07d9ec-0aea1b3dc5.zip/node_modules/framer-motion/",\
+      ["npm:11.1.7", {\
+        "packageLocation": "./.yarn/cache/framer-motion-npm-11.1.7-bdd21c85e2-33ab196741.zip/node_modules/framer-motion/",\
         "packageDependencies": [\
-          ["framer-motion", "npm:10.18.0"]\
+          ["framer-motion", "npm:11.1.7"]\
         ],\
         "linkType": "SOFT"\
       }],\
-      ["virtual:f07464c37ca04a40ede0ee59325345ae4210016424eafee5450c11b7b98e537f542f55e4b19ff7b0ef1cbb8d8b88d58eef1cee1c50472ba9f7242ad1f5695a34#npm:10.18.0", {\
-        "packageLocation": "./.yarn/__virtual__/framer-motion-virtual-9a991e4569/0/cache/framer-motion-npm-10.18.0-5bde07d9ec-0aea1b3dc5.zip/node_modules/framer-motion/",\
+      ["virtual:f07464c37ca04a40ede0ee59325345ae4210016424eafee5450c11b7b98e537f542f55e4b19ff7b0ef1cbb8d8b88d58eef1cee1c50472ba9f7242ad1f5695a34#npm:11.1.7", {\
+        "packageLocation": "./.yarn/__virtual__/framer-motion-virtual-10c794fb64/0/cache/framer-motion-npm-11.1.7-bdd21c85e2-33ab196741.zip/node_modules/framer-motion/",\
         "packageDependencies": [\
-          ["framer-motion", "virtual:f07464c37ca04a40ede0ee59325345ae4210016424eafee5450c11b7b98e537f542f55e4b19ff7b0ef1cbb8d8b88d58eef1cee1c50472ba9f7242ad1f5695a34#npm:10.18.0"],\
-          ["@emotion/is-prop-valid", "npm:0.8.8"],\
+          ["framer-motion", "virtual:f07464c37ca04a40ede0ee59325345ae4210016424eafee5450c11b7b98e537f542f55e4b19ff7b0ef1cbb8d8b88d58eef1cee1c50472ba9f7242ad1f5695a34#npm:11.1.7"],\
+          ["@emotion/is-prop-valid", null],\
+          ["@types/emotion__is-prop-valid", null],\
           ["@types/react", "npm:18.2.46"],\
           ["@types/react-dom", "npm:18.2.18"],\
           ["react", "npm:18.2.0"],\
@@ -2205,6 +2187,8 @@ const RAW_RUNTIME_STATE =
           ["tslib", "npm:2.6.2"]\
         ],\
         "packagePeers": [\
+          "@emotion/is-prop-valid",\
+          "@types/emotion__is-prop-valid",\
           "@types/react-dom",\
           "@types/react",\
           "react-dom",\
@@ -5017,7 +5001,7 @@ const RAW_RUNTIME_STATE =
           ["autoprefixer", "virtual:f07464c37ca04a40ede0ee59325345ae4210016424eafee5450c11b7b98e537f542f55e4b19ff7b0ef1cbb8d8b88d58eef1cee1c50472ba9f7242ad1f5695a34#npm:10.4.16"],\
           ["eslint", "npm:8.56.0"],\
           ["eslint-config-next", "virtual:f07464c37ca04a40ede0ee59325345ae4210016424eafee5450c11b7b98e537f542f55e4b19ff7b0ef1cbb8d8b88d58eef1cee1c50472ba9f7242ad1f5695a34#npm:14.0.4"],\
-          ["framer-motion", "virtual:f07464c37ca04a40ede0ee59325345ae4210016424eafee5450c11b7b98e537f542f55e4b19ff7b0ef1cbb8d8b88d58eef1cee1c50472ba9f7242ad1f5695a34#npm:10.18.0"],\
+          ["framer-motion", "virtual:f07464c37ca04a40ede0ee59325345ae4210016424eafee5450c11b7b98e537f542f55e4b19ff7b0ef1cbb8d8b88d58eef1cee1c50472ba9f7242ad1f5695a34#npm:11.1.7"],\
           ["next", "virtual:f07464c37ca04a40ede0ee59325345ae4210016424eafee5450c11b7b98e537f542f55e4b19ff7b0ef1cbb8d8b88d58eef1cee1c50472ba9f7242ad1f5695a34#npm:14.0.4"],\
           ["postcss", "npm:8.4.32"],\
           ["react", "npm:18.2.0"],\
