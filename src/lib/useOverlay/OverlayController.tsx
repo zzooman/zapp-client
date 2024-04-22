@@ -1,4 +1,4 @@
-import { Ref, forwardRef, useCallback, useImperativeHandle, useState } from 'react';
+import { Ref, forwardRef, useCallback, useEffect, useImperativeHandle, useState } from 'react';
 
 export type OverlayElementProps = { isOpen: boolean; close: () => void; exit: () => void };
 export type CreateOverlayElement = (props: OverlayElementProps) => JSX.Element;
@@ -26,6 +26,13 @@ const OverlayController = forwardRef(function OverlayController(
     }),
     [closeOverlay]
   );
+
+  useEffect(() => {
+    // NOTE: requestAnimationFrame이 없으면 가끔 Open 애니메이션이 실행되지 않는다.
+    requestAnimationFrame(() => {
+      setIsOpenOverlay(true);
+    });
+  }, []);
 
   return <OverlayElement isOpen={isOpenOverlay} close={closeOverlay} exit={onExit} />;
 });
