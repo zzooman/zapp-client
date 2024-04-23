@@ -1,4 +1,4 @@
-import { ReactNode, useContext, useMemo, useRef } from 'react';
+import { useContext, useMemo, useRef } from 'react';
 import { OverlayContext } from './OverlayProvider';
 import OverlayController, { CreateOverlayElement } from './OverlayController';
 

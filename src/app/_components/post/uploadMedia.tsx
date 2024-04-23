@@ -1,10 +1,9 @@
 'use client';
-
-import useOverlay from '@/lib/useOverlay/useOverlay';
+import useOverlay from '../../../lib/useOverlay/useOverlay';
 import { faCameraRetro, faCircleXmark } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Image from 'next/image';
-import { MouseEventHandler, TouchEventHandler, useState } from 'react';
+import React, { MouseEventHandler, useState } from 'react';
 import UploadedMediaModal from '../overlay/toast/UploadedMediaModal';
 
 export interface Media {
@@ -12,7 +11,7 @@ export interface Media {
   url: string;
 }
 
-export function UploadMedia() {
+export default function UploadMedia() {
   const [medias, setMedias] = useState<Media[]>([]);
   const overlay = useOverlay();
 
@@ -44,7 +43,7 @@ export function UploadMedia() {
       setMedias(prev => prev.filter((_, i) => i !== index));
     };
   return (
-    <section className="flex space-x-2 px-4 w-max">
+    <section className="flex space-x-2 w-max">
       <div className="flex justify-center items-center opacity-80 h-20 aspect-square border rounded-md">
         <input id="uploadMedia" type="file" accept="image/*, video/*" hidden onInput={onInput} />
         <label htmlFor="uploadMedia" className="flex flex-col gap-1 justify-center items-center cursor-pointer">
