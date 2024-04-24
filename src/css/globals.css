@@ -4,93 +4,17 @@
 
 @import '@fortawesome/fontawesome-svg-core/styles.css';
 
-/* :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@layer {
+  .text-base {
+    @apply text-slate-900 dark:text-white;
   }
-} */
-
+  .bg-base {
+    @apply bg-white dark:bg-slate-900;
+  }
+}
 body {
-  /* color: rgb(var(--foreground-rgb));
-  background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb)); */
   @apply text-base bg-base;
 }
-
-/* base color */
-.text-base {
-  @apply text-slate-900 dark:text-white;
-}
-.bg-base {
-  @apply bg-white dark:bg-slate-900;
-}
-
-/* bg-point color */
-.bg-point-100 {
-  @apply bg-emerald-100;
-}
-.bg-point-200 {
-  @apply bg-emerald-200;
-}
-.bg-point-300 {
-  @apply bg-emerald-400;
-}
-.bg-point-400 {
-  @apply bg-emerald-400;
-}
-.bg-point-500 {
-  @apply bg-emerald-500;
-}
-.bg-point-600 {
-  @apply bg-emerald-600;
-}
-.bg-point-700 {
-  @apply bg-emerald-700;
-}
-.bg-point-800 {
-  @apply bg-emerald-800;
-}
-.bg-point-900 {
-  @apply bg-emerald-900;
-}
-/* bg-point color */
-
-/* text-point color */
-.text-point-100 {
-  @apply text-emerald-100;
-}
-.text-point-200 {
-  @apply text-emerald-200;
-}
-.text-point-300 {
-  @apply text-emerald-400;
-}
-.text-point-400 {
-  @apply text-emerald-400;
-}
-.text-point-500 {
-  @apply text-emerald-500;
-}
-.text-point-600 {
-  @apply text-emerald-600;
-}
-.text-point-700 {
-  @apply text-emerald-700;
-}
-.text-point-800 {
-  @apply text-emerald-800;
-}
-.text-point-900 {
-  @apply text-emerald-900;
-}
-/* text-point color */
 
 .scrollbar-hide {
   scrollbar-width: none; /* Firefox */

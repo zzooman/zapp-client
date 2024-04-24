@@ -3,7 +3,14 @@ import useOverlay from '../../../lib/useOverlay/useOverlay';
 import { faCameraRetro, faCircleXmark } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Image from 'next/image';
-import React, { MouseEventHandler, useState } from 'react';
+import React, {
+  ForwardedRef,
+  MouseEventHandler,
+  MutableRefObject,
+  forwardRef,
+  useImperativeHandle,
+  useState,
+} from 'react';
 import UploadedMediaModal from '../overlay/toast/UploadedMediaModal';
 
 export interface Media {
@@ -11,7 +18,7 @@ export interface Media {
   url: string;
 }
 
-export default function UploadMedia() {
+export default forwardRef(function UploadMedia(props, ref: ForwardedRef<Media[]>) {
   const [medias, setMedias] = useState<Media[]>([]);
   const overlay = useOverlay();
 
@@ -42,6 +49,14 @@ export default function UploadMedia() {
       e.stopPropagation();
       setMedias(prev => prev.filter((_, i) => i !== index));
     };
+
+  useImperativeHandle(
+    ref,
+    () => {
+      return medias;
+    },
+    [medias]
+  );
   return (
     <section className="flex space-x-2 w-max">
       <div className="flex justify-center items-center opacity-80 h-20 aspect-square border rounded-md">
@@ -73,4 +88,4 @@ export default function UploadMedia() {
       ))}
     </section>
   );
-}
+});
