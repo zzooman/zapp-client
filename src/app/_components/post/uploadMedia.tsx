@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Image from 'next/image';
 import UploadedMediaModal from '../overlay/toast/UploadedMediaModal';
 import { Media } from '../../_lib/types/types';
-import useOverlay from '../../_lib/useOverlay/useOverlay';
+import useOverlay from '../../_lib/hooks/useOverlay/useOverlay';
 
 export default forwardRef(function UploadMedia(props, ref: ForwardedRef<Media[]>) {
   const [medias, setMedias] = useState<Media[]>([]);

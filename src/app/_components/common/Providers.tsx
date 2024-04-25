@@ -2,7 +2,7 @@
 
 import { ReactNode } from 'react';
 import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
-import OverlayProvider from '@/app/_lib/useOverlay/OverlayProvider';
+import OverlayProvider from '@/app/_lib/hooks/useOverlay/OverlayProvider';
 
 interface Props {
   children: ReactNode;
