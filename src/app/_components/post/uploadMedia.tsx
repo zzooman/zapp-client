@@ -1,22 +1,11 @@
 'use client';
-import useOverlay from '../../../lib/useOverlay/useOverlay';
+import React, { ForwardedRef, MouseEventHandler, forwardRef, useImperativeHandle, useState } from 'react';
 import { faCameraRetro, faCircleXmark } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Image from 'next/image';
-import React, {
-  ForwardedRef,
-  MouseEventHandler,
-  MutableRefObject,
-  forwardRef,
-  useImperativeHandle,
-  useState,
-} from 'react';
 import UploadedMediaModal from '../overlay/toast/UploadedMediaModal';
-
-export interface Media {
-  type: 'image' | 'video';
-  url: string;
-}
+import { Media } from '../../_lib/types/types';
+import useOverlay from '../../_lib/useOverlay/useOverlay';
 
 export default forwardRef(function UploadMedia(props, ref: ForwardedRef<Media[]>) {
   const [medias, setMedias] = useState<Media[]>([]);
@@ -75,9 +64,10 @@ export default forwardRef(function UploadMedia(props, ref: ForwardedRef<Media[]>
             className="absolute right-[-5px] top-[-5px] z-30 h-5"
             onClick={removeMedia(i)}
           />
-          {media.type === 'image' ? (
+          {media.type === 'image' && (
             <Image src={media.url} alt="media" objectFit="cover" layout="fill" className="rounded-md" />
-          ) : (
+          )}
+          {media.type === 'video' && (
             <video
               src={media.url}
               autoPlay

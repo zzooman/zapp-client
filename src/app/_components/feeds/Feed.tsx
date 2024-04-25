@@ -15,7 +15,7 @@ export default function Feed({ feed }: Props) {
     <Link href="/feed-detail/1" className="w-full p-2">
       <Image
         src={feed.img}
-        className="w-full aspect-square object-contain md:aspect-video border"
+        className="w-full aspect-square object-contain md:aspect-video"
         alt="product"
         priority
       ></Image>

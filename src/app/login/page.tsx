@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import Container from '@/app/_components/common/Container';
 import Header from '@/app/_components/common/header/Header';
-import API from '@/api/api';
+import API from '@/app/_lib/fetcher/fetcher';
 
 export interface ILoginForm {
   username: string;

@@ -1,6 +1,6 @@
 'use client';
 
-import API from '@/api/api';
+import API from '@/app/_lib/fetcher/fetcher';
 import { SubmitHandler, useForm } from 'react-hook-form';
 
 export interface ISignupForm {
