@@ -19,5 +19,6 @@ export interface IFeed {
     comment: number;
     views: number;
   };
+  liked: boolean;
   createdAt: string;
 }

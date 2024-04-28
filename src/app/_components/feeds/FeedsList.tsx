@@ -19,6 +19,7 @@ export const DUMMY: IFeed[] = [
     price: 10000,
     counts: { stock: 10, like: 10, comment: 10, views: 10 },
     createdAt: '2021-09-01T00:00:00',
+    liked: true,
   },
   {
     id: 2,
@@ -37,6 +38,7 @@ export const DUMMY: IFeed[] = [
     price: 10000,
     counts: { stock: 10, like: 10, comment: 10, views: 10 },
     createdAt: '2021-09-01T00:00:00',
+    liked: true,
   },
   {
     id: 3,
@@ -55,6 +57,7 @@ export const DUMMY: IFeed[] = [
     price: 10000,
     counts: { stock: 10, like: 10, comment: 10, views: 10 },
     createdAt: '2021-09-01T00:00:00',
+    liked: true,
   },
 ];
 

@@ -1,22 +1,22 @@
 import Container from '@/app/_components/common/Container';
 import Image from 'next/image';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHeart as Heart, faBookmark as Bookmark, faChartSimple, faShare } from '@fortawesome/free-solid-svg-icons';
-import { faHeart as LineHeart, faBookmark as LineBookmark, faComment } from '@fortawesome/free-regular-svg-icons';
 import { DUMMY } from '@/app/_components/feeds/FeedsList';
 
 import 'swiper/css';
 import 'swiper/css/pagination';
 import MediaSlider from '@/app/_components/common/swiper/MediaSlider';
 import { timeLapse } from '@/app/_lib/utils/utils';
+import FeedDetailHeader from '@/app/_components/feedDetail/FeedDetailHeader';
+import FeedDetailFooter from '@/app/_components/feedDetail/FeedDetailFooter';
 
 export default function FeedDetailPage() {
   const feed = DUMMY[0];
 
   return (
     <Container>
+      <FeedDetailHeader />
       <main>
-        <section>
+        <section className="mb-16">
           <MediaSlider medias={feed.medias} aspectRatio="1/1" objectFit="cover" />
           <article className="flex justify-between items-center p-4">
             <div className="flex items-center">
@@ -41,6 +41,7 @@ export default function FeedDetailPage() {
           </article>
         </section>
       </main>
+      <FeedDetailFooter liked={feed.liked} price={feed.price} />
     </Container>
   );
 }

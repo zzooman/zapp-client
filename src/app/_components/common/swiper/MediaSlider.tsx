@@ -28,10 +28,19 @@ export default function MediaSlider({ medias, objectFit, aspectRatio }: Props) {
       {medias.map((media, i) => (
         <SwiperSlide key={i}>
           {media.type === 'video' && (
-            <video src={media.url} controls style={{ width: '100%', objectFit: objectFit ?? 'cover' }} />
+            <video
+              src={media.url}
+              controls
+              style={{ width: '100%', height: '100%', objectFit: objectFit ?? 'cover' }}
+            />
           )}
           {media.type === 'image' && (
-            <img src={media.url} alt={media.type} className="w-full" style={{ objectFit: objectFit ?? 'cover' }} />
+            <img
+              src={media.url}
+              alt={media.type}
+              className="w-full h-full"
+              style={{ objectFit: objectFit ?? 'cover' }}
+            />
           )}
         </SwiperSlide>
       ))}
