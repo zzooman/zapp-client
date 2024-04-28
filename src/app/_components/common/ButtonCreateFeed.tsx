@@ -14,7 +14,7 @@ export default function ButtonCreateFeed({ show }: Props) {
       {show && (
         <button
           onClick={() => router.push('/post/goods')}
-          className="absolute bottom-[10%] right-[10%] flex justify-center items-center bg-point-400 text-white rounded-full w-12 h-12 active:scale-90 transition-all"
+          className="absolute bottom-[12%] right-[10%] z-30 flex justify-center items-center bg-point-400 text-white rounded-full w-12 h-12 active:scale-90 transition-all"
         >
           <FontAwesomeIcon icon={faPlus} size="1x" />
         </button>

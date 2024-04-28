@@ -3,12 +3,13 @@ export interface Media {
   url: string;
 }
 
-export interface Feed {
+export interface IFeed {
+  id: number;
   seller: {
     username: string;
     profile: string;
   };
-  media: Media[];
+  medias: Media[];
   title: string;
   content: string;
   price: number;
@@ -16,5 +17,7 @@ export interface Feed {
     stock: number;
     like: number;
     comment: number;
+    views: number;
   };
+  createdAt: string;
 }
