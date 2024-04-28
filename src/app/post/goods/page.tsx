@@ -5,7 +5,7 @@ import GoodsDescription from '@/app/_components/post/GoodsDescription';
 import GoodsTitle from '@/app/_components/post/GoodsTitle';
 import GoodsPrice from '@/app/_components/post/GoodsPrice';
 import PostGoodsButton from '@/app/_components/post/PostGoodsButton';
-import UploadMedia from '@/app/_components/post/uploadMedia';
+import UploadMedia from '@/app/_components/post/UploadMedia';
 
 import { MouseEventHandler, useCallback, useRef } from 'react';
 import { Media } from '@/app/_lib/types/types';
