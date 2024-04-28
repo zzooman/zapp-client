@@ -32,7 +32,7 @@ const RAW_RUNTIME_STATE =
           ["@fortawesome/free-solid-svg-icons", "npm:6.5.1"],\
           ["@fortawesome/react-fontawesome", "virtual:f07464c37ca04a40ede0ee59325345ae4210016424eafee5450c11b7b98e537f542f55e4b19ff7b0ef1cbb8d8b88d58eef1cee1c50472ba9f7242ad1f5695a34#npm:0.2.0"],\
           ["@tanstack/react-query", "virtual:f07464c37ca04a40ede0ee59325345ae4210016424eafee5450c11b7b98e537f542f55e4b19ff7b0ef1cbb8d8b88d58eef1cee1c50472ba9f7242ad1f5695a34#npm:5.17.1"],\
-          ["@types/node", "npm:20.10.6"],\
+          ["@types/node", "npm:20.12.7"],\
           ["@types/react", "npm:18.2.46"],\
           ["@types/react-dom", "npm:18.2.18"],\
           ["autoprefixer", "virtual:f07464c37ca04a40ede0ee59325345ae4210016424eafee5450c11b7b98e537f542f55e4b19ff7b0ef1cbb8d8b88d58eef1cee1c50472ba9f7242ad1f5695a34#npm:10.4.16"],\
@@ -544,10 +544,10 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@types/node", [\
-      ["npm:20.10.6", {\
-        "packageLocation": "./.yarn/cache/@types-node-npm-20.10.6-59a7d708ba-6692ccfa85.zip/node_modules/@types/node/",\
+      ["npm:20.12.7", {\
+        "packageLocation": "./.yarn/cache/@types-node-npm-20.12.7-3bb3d3303d-dce80d63a3.zip/node_modules/@types/node/",\
         "packageDependencies": [\
-          ["@types/node", "npm:20.10.6"],\
+          ["@types/node", "npm:20.12.7"],\
           ["undici-types", "npm:5.26.5"]\
         ],\
         "linkType": "HARD"\
@@ -4995,7 +4995,7 @@ const RAW_RUNTIME_STATE =
           ["@fortawesome/free-solid-svg-icons", "npm:6.5.1"],\
           ["@fortawesome/react-fontawesome", "virtual:f07464c37ca04a40ede0ee59325345ae4210016424eafee5450c11b7b98e537f542f55e4b19ff7b0ef1cbb8d8b88d58eef1cee1c50472ba9f7242ad1f5695a34#npm:0.2.0"],\
           ["@tanstack/react-query", "virtual:f07464c37ca04a40ede0ee59325345ae4210016424eafee5450c11b7b98e537f542f55e4b19ff7b0ef1cbb8d8b88d58eef1cee1c50472ba9f7242ad1f5695a34#npm:5.17.1"],\
-          ["@types/node", "npm:20.10.6"],\
+          ["@types/node", "npm:20.12.7"],\
           ["@types/react", "npm:18.2.46"],\
           ["@types/react-dom", "npm:18.2.18"],\
           ["autoprefixer", "virtual:f07464c37ca04a40ede0ee59325345ae4210016424eafee5450c11b7b98e537f542f55e4b19ff7b0ef1cbb8d8b88d58eef1cee1c50472ba9f7242ad1f5695a34#npm:10.4.16"],\
