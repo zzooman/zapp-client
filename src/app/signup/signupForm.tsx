@@ -20,57 +20,57 @@ export default function SignupForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} action="" className="flex flex-col space-y-4">
+    <form onSubmit={handleSubmit(onSubmit)} action="" className="relative flex flex-col space-y-6 mt-6 h-full">
       <div className="flex">
-        <label htmlFor="username">닉네임</label>
         <input
-          className="text-black"
+          className="bg-transparent border-b border-b-slate-400 w-full text-slate-50 h-10"
           id="username"
           type="text"
+          placeholder="닉네임"
           {...register('username', { required: true, min: 4, max: 32 })}
         />
       </div>
 
       <div className="flex">
-        <label htmlFor="password">비밀번호</label>
         <input
-          className="text-black"
+          className="bg-transparent border-b border-b-slate-400 w-full text-slate-50 h-10"
           id="password"
           type="password"
+          placeholder="비밀번호"
           {...register('password', { required: true, min: 6, max: 32 })}
         />
       </div>
 
       <div className="flex">
-        <label htmlFor="passwordConfirm">비밀번호 재입력</label>
         <input
-          className="text-black"
+          className="bg-transparent border-b border-b-slate-400 w-full text-slate-50 h-10"
           id="passwordConfirm"
           type="password"
+          placeholder="비밀번호 확인"
           {...register('passwordConfirm', { required: true, min: 6, max: 32 })}
         />
       </div>
 
       <div className="flex">
-        <label htmlFor="phone">핸드폰번호</label>
         <input
-          className="text-black"
+          className="bg-transparent border-b border-b-slate-400 w-full text-slate-50 h-10"
           id="phone"
           type="number"
+          placeholder='전화번호 ("-" 없이 입력)'
           {...register('phone', { required: true, minLength: 11, maxLength: 11 })}
         />
       </div>
 
       <div className="flex">
-        <label htmlFor="email">이메일</label>
         <input
-          className="text-black"
+          className="bg-transparent border-b border-b-slate-400 w-full text-slate-50 h-10"
           type="email"
+          placeholder="이메일"
           {...register('email', { required: true, maxLength: 64, pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i })}
         />
       </div>
 
-      <button type="submit" className="bg-red-400">
+      <button type="submit" className="absolute left-0 bottom-0 w-full bg-point-400 h-10 rounded-sm cursor-pointer">
         회원가입
       </button>
     </form>

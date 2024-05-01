@@ -1,13 +1,13 @@
 import Container from '@/app/_components/common/Container';
 import Image from 'next/image';
 import { DUMMY } from '@/app/_components/feeds/FeedsList';
-
-import 'swiper/css';
-import 'swiper/css/pagination';
 import MediaSlider from '@/app/_components/common/swiper/MediaSlider';
 import { timeLapse } from '@/app/_lib/utils/utils';
 import FeedDetailHeader from '@/app/_components/feedDetail/FeedDetailHeader';
 import FeedDetailFooter from '@/app/_components/feedDetail/FeedDetailFooter';
+
+import 'swiper/css';
+import 'swiper/css/pagination';
 
 export default function FeedDetailPage() {
   const feed = DUMMY[0];
