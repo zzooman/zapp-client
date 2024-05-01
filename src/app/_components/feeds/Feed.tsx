@@ -1,5 +1,4 @@
 import React from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
 import { IFeed } from '@/app/_lib/types/types';
 
@@ -9,6 +8,7 @@ import 'swiper/css/pagination';
 import '@/css/swiper.css';
 import { currency } from '@/app/_lib/utils/utils';
 import MediaSlider from '../common/swiper/MediaSlider';
+import FeedSeller from './FeedSeller';
 
 interface Props {
   feed: IFeed;
@@ -17,16 +17,7 @@ interface Props {
 export default function Feed({ feed }: Props) {
   return (
     <Link href={`/feed-detail/${feed.id}`}>
-      <Link href={`/seller/${feed.seller.username}`} className="flex gap-2 p-4 items-center text-sm">
-        <Image
-          src={feed.seller.profile}
-          alt={feed.seller.username}
-          width={35}
-          height={35}
-          className="rounded-full aspect-square object-cover"
-        />
-        <span>{feed.seller.username}</span>
-      </Link>
+      <FeedSeller feed={feed} />
       <div className="w-full aspect-video">
         <MediaSlider medias={feed.medias} />
       </div>

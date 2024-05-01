@@ -3,7 +3,7 @@ import React, { ForwardedRef, MouseEventHandler, forwardRef, useImperativeHandle
 import { faCameraRetro, faCircleXmark } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Image from 'next/image';
-import UploadedMediaModal from '../overlay/toast/UploadedMediaModal';
+import UploadedMediaModal from './UploadedMediaModal';
 import { Media } from '../../_lib/types/types';
 import useOverlay from '../../_lib/hooks/useOverlay/useOverlay';
 
