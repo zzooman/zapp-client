@@ -11,7 +11,10 @@ export default function ChatBar() {
   };
 
   return (
-    <form className="fixed left-0 bottom-0 w-full flex items-center justify-between gap-3 p-4" onSubmit={onSubmit}>
+    <form
+      className="fixed left-[50%] bottom-0 w-full max-w-3xl transform -translate-x-[50%] flex items-center justify-between gap-3 p-4"
+      onSubmit={onSubmit}
+    >
       <input
         type="text"
         className="w-full px-3 py-[6px] rounded-full placeholder:text-sm"

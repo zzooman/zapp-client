@@ -8,7 +8,7 @@ export default function FeedDetailHeader() {
   const router = useRouter();
 
   return (
-    <header className="fixed left-0 top-0 z-20 flex justify-between items-center w-full h-14">
+    <header className="fixed top-0 left-[50%] transform -translate-x-[50%] max-w-3xl z-20 flex justify-between items-center w-full h-14">
       <div className="flex justify-center items-center w-8 h-8 ml-2" onClick={router.back}>
         <FontAwesomeIcon icon={faChevronLeft} className="h-5" />
       </div>
