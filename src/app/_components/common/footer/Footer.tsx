@@ -41,22 +41,25 @@ export default function Footer() {
       <Container>
         <nav className="flex justify-around items-center h-16" onClick={() => setDown(false)}>
           <Link href="/">
-            <FontAwesomeIcon icon={faHouse} color={path === '/' ? '#fff' : '#777'} />
+            <FontAwesomeIcon icon={faHouse} color={path === '/' ? '#fff' : '#555'} />
           </Link>
           <Link href="/search">
-            <FontAwesomeIcon icon={faMagnifyingGlass} color={path.includes('search') ? '#fff' : '#777'} />
+            <FontAwesomeIcon icon={faMagnifyingGlass} color={path.includes('search') ? '#fff' : '#555'} />
           </Link>
           <Link href="/hot">
-            <FontAwesomeIcon icon={faFire} color="#777" />
+            <FontAwesomeIcon icon={faFire} color={path === '/hot' ? '#fff' : '#555'} />
           </Link>
           <Link href="/chats">
             <FontAwesomeIcon
               icon={path.includes('chats') ? faComment : lineComment}
-              color={path.includes('chats') ? '#fff' : '#777'}
+              color={path.includes('chats') ? '#fff' : '#555'}
             />
           </Link>
-          <Link href="/user">
-            <FontAwesomeIcon icon={path === '/user' ? faUser : lineUser} color={path === '/user' ? '#fff' : '#777'} />
+          <Link href="/mypage">
+            <FontAwesomeIcon
+              icon={path === '/mypage' ? faUser : lineUser}
+              color={path === '/mypage' ? '#fff' : '#555'}
+            />
           </Link>
         </nav>
       </Container>

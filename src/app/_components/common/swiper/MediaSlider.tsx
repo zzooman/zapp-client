@@ -23,7 +23,7 @@ export default function MediaSlider({ medias, objectFit, aspectRatio }: Props) {
       scrollbar={{ draggable: true }}
       onSwiper={swiper => console.log(swiper)}
       onSlideChange={() => console.log('slide change')}
-      style={{ width: '100%', aspectRatio: aspectRatio ?? '16/9' }}
+      style={{ width: '100%', maxHeight: '50vh', aspectRatio: aspectRatio ?? '16/9' }}
     >
       {medias.map((media, i) => (
         <SwiperSlide key={i}>
