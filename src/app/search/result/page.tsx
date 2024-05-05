@@ -7,9 +7,9 @@ export default function SearchResultPage() {
   return (
     <main className="p-4">
       <SearchForm />
-      <ul className="flex flex-col mt-4 divide-y divide-slate-700">
+      <ul className="flex flex-col divide-y divide-slate-700 mt-10">
         <li className="relative flex gap-4 w-full h-32 py-4">
-          <Image src="/images/cat.jpg" width={100} height={100} className="rounded-sm" alt="image"></Image>
+          <Image src="/images/cat.jpg" width={100} height={100} className="rounded-sm object-cover" alt="image"></Image>
           <div className="flex flex-col gap-1">
             <h3 className="text-sm">타이틀이지 뭐</h3>
             <p className="text-xs">내용이지 뭐</p>
@@ -18,7 +18,7 @@ export default function SearchResultPage() {
           <FontAwesomeIcon icon={faHeart} className="absolute right-2 bottom-4 h-4" />
         </li>
         <li className="relative flex gap-4 w-full h-32 py-4">
-          <Image src="/images/cat.jpg" width={100} height={100} className="rounded-sm" alt="image"></Image>
+          <Image src="/images/cat.jpg" width={100} height={100} className="rounded-sm object-cover" alt="image"></Image>
           <div className="flex flex-col gap-1">
             <h3 className="text-sm">타이틀이지 뭐</h3>
             <p className="text-xs">내용이지 뭐</p>
@@ -27,7 +27,7 @@ export default function SearchResultPage() {
           <FontAwesomeIcon icon={faHeart} className="absolute right-2 bottom-4 h-4" />
         </li>
         <li className="relative flex gap-4 w-full h-32 py-4">
-          <Image src="/images/cat.jpg" width={100} height={100} className="rounded-sm" alt="image"></Image>
+          <Image src="/images/cat.jpg" width={100} height={100} className="rounded-sm object-cover" alt="image"></Image>
           <div className="flex flex-col gap-1">
             <h3 className="text-sm">타이틀이지 뭐</h3>
             <p className="text-xs">내용이지 뭐</p>
@@ -36,7 +36,7 @@ export default function SearchResultPage() {
           <FontAwesomeIcon icon={faHeart} className="absolute right-2 bottom-4 h-4" />
         </li>
         <li className="relative flex gap-4 w-full h-32 py-4">
-          <Image src="/images/cat.jpg" width={100} height={100} className="rounded-sm" alt="image"></Image>
+          <Image src="/images/cat.jpg" width={100} height={100} className="rounded-sm object-cover" alt="image"></Image>
           <div className="flex flex-col gap-1">
             <h3 className="text-sm">타이틀이지 뭐</h3>
             <p className="text-xs">내용이지 뭐</p>
@@ -45,7 +45,7 @@ export default function SearchResultPage() {
           <FontAwesomeIcon icon={faHeart} className="absolute right-2 bottom-4 h-4" />
         </li>
         <li className="relative flex gap-4 w-full h-32 py-4">
-          <Image src="/images/cat.jpg" width={100} height={100} className="rounded-sm" alt="image"></Image>
+          <Image src="/images/cat.jpg" width={100} height={100} className="rounded-sm object-cover" alt="image"></Image>
           <div className="flex flex-col gap-1">
             <h3 className="text-sm">타이틀이지 뭐</h3>
             <p className="text-xs">내용이지 뭐</p>
