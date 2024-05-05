@@ -21,7 +21,7 @@ export default function FeedDetailFooter({ price, liked }: Props) {
         </div>
         <strong>{currency(price)}원</strong>
       </div>
-      <button className="rounded-md bg-point-400 py-2 px-4 text-sm font-bold" onClick={() => router.push(`/chat/1`)}>
+      <button className="rounded-md bg-point-400 py-2 px-4 text-sm font-bold" onClick={() => router.push(`/chats/1`)}>
         채팅하기
       </button>
     </footer>
