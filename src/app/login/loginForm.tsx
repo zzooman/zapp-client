@@ -56,7 +56,7 @@ export default function LoginForm() {
       </button>
 
       <Link
-        href="#"
+        href="/signup"
         className="absolute left-0 bottom-0 flex justify-center items-center w-full border border-point-400 h-10 rounded-sm cursor-pointer"
       >
         회원가입

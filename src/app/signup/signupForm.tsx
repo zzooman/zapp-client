@@ -1,6 +1,7 @@
 'use client';
 
 import API from '@/app/_lib/fetcher/fetcher';
+import { useRouter } from 'next/navigation';
 import { SubmitHandler, useForm } from 'react-hook-form';
 
 export interface ISignupForm {
@@ -9,14 +10,18 @@ export interface ISignupForm {
   phone: string;
   password: string;
   passwordConfirm: string;
-  location?: string;
 }
 
 export default function SignupForm() {
   const { register, handleSubmit } = useForm<ISignupForm>();
+  const router = useRouter();
 
-  const onSubmit: SubmitHandler<ISignupForm> = data => {
-    API.signup(data);
+  const onSubmit: SubmitHandler<ISignupForm> = async data => {
+    const response = await API.signup(data);
+    if (response.status === 200) {
+      alert('회원가입이 완료되었습니다.');
+      router.push('/login');
+    }
   };
 
   return (

@@ -1,14 +1,12 @@
 import BackBtn from './BackBtn';
-import LocationBtn from './location/LocationBtn';
 import MenuBtn from './menu/MenuBtn';
 
 interface Props {
   back?: boolean;
   menu?: boolean;
-  location?: boolean;
   title?: string;
 }
-export default function Header({ back, menu, location, title }: Props) {
+export default function Header({ back, menu, title }: Props) {
   return (
     <>
       <header
@@ -16,7 +14,6 @@ export default function Header({ back, menu, location, title }: Props) {
       >
         {back && <BackBtn />}
         {menu && <MenuBtn />}
-        {location && <LocationBtn />}
         {title && <h1 className="absolute left-[50%] translate-x-[-50%] text-white font-bold">{title}</h1>}
       </header>
     </>
