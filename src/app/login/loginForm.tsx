@@ -3,6 +3,7 @@
 import { SubmitHandler, useForm } from 'react-hook-form';
 import API from '../_lib/fetcher/fetcher';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 export interface ILoginForm {
   username: string;
@@ -10,8 +11,15 @@ export interface ILoginForm {
 }
 
 export default function LoginForm() {
-  const onSubmit: SubmitHandler<ILoginForm> = data => {
-    API.login(data);
+  const router = useRouter();
+  const onSubmit: SubmitHandler<ILoginForm> = async data => {
+    const res = await API.login(data);
+    if (res.status === 200) {
+      alert('로그인 성공');
+      router.push('/');
+    } else {
+      alert('로그인 실패');
+    }
   };
 
   const {
