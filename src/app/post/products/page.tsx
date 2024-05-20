@@ -9,10 +9,10 @@ import PostContent from '@/app/post/products/PostContent';
 import PostButton from '@/app/post/products/PostButton';
 
 export interface PostingState {
-  postTitle: string;
-  postContent: string;
-  productPrice: string;
-  postMedias: Media[];
+  title: string;
+  content: string;
+  price: string;
+  medias: Media[];
 }
 
 export default function PostingPage() {
@@ -24,10 +24,10 @@ export default function PostingPage() {
   const onSubmit: MouseEventHandler<HTMLButtonElement> = useCallback(e => {
     e.preventDefault();
     const postingState: PostingState = {
-      postTitle: titleRef.current,
-      productPrice: priceRef.current,
-      postContent: contentRef.current,
-      postMedias: mediaRef.current,
+      title: titleRef.current,
+      content: contentRef.current,
+      price: priceRef.current,
+      medias: mediaRef.current,
     };
   }, []);
 
