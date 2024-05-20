@@ -2,7 +2,7 @@
 
 import { forwardRef, useImperativeHandle, useState } from 'react';
 
-export default forwardRef(function GoodsPrice(_, ref) {
+export default forwardRef(function ProductPrice(_, ref) {
   const [price, setPrice] = useState<string>('');
   useImperativeHandle(
     ref,
@@ -13,9 +13,9 @@ export default forwardRef(function GoodsPrice(_, ref) {
   );
   return (
     <fieldset className="flex flex-col space-y-2">
-      <label htmlFor="goodsPrice">가격</label>
+      <label htmlFor="price">가격</label>
       <input
-        id="goodsPrice"
+        id="price"
         type="text"
         inputMode="numeric"
         className="w-ful p-2 border rounded-md"
