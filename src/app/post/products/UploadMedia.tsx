@@ -14,17 +14,21 @@ export default forwardRef(function UploadMedia(props, ref: ForwardedRef<Media[]>
   const onInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     const fileReader = new FileReader();
+    const formData = new FormData();
     if (file) {
       if (file.type.includes('video')) {
         fileReader.onload = () => {
           const videoUrl = URL.createObjectURL(file);
-          setMedias(prev => [...prev, { type: 'video', url: videoUrl }]);
+          formData.append('video', file);
+          setMedias(prev => [...prev, { type: 'video', url: videoUrl, form: formData }]);
         };
       } else {
         fileReader.onload = () => {
-          setMedias(prev => [...prev, { type: 'image', url: fileReader.result as string }]);
+          formData.append('image', file);
+          setMedias(prev => [...prev, { type: 'image', url: fileReader.result as string, form: formData }]);
         };
       }
+
       fileReader.readAsDataURL(file);
     }
   };
