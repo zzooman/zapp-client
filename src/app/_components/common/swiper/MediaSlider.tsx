@@ -21,9 +21,9 @@ export default function MediaSlider({ medias, objectFit, aspectRatio }: Props) {
       loop
       pagination={{ clickable: true }}
       scrollbar={{ draggable: true }}
-      onSwiper={swiper => console.log(swiper)}
-      onSlideChange={() => console.log('slide change')}
       style={{ width: '100%', maxHeight: '50vh', aspectRatio: aspectRatio ?? '16/9' }}
+      // onSwiper={swiper => console.log(swiper)}
+      // onSlideChange={() => console.log('slide change')}
     >
       {medias.map((media, i) => (
         <SwiperSlide key={i}>

@@ -1,11 +1,15 @@
 import { ILoginForm } from '@/app/login/loginForm';
 import { ISignupForm } from '@/app/signup/signupForm';
-import { CreatePostParams, Post } from '../types/types';
+import { CreatePostParams, CreatePostResponse, Post, Res } from '../types/types';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 export async function handleResponse(res: Response) {
   const json = await res.json();
-  if (res.ok) return json;
+  if (res.ok)
+    return {
+      status: res.status,
+      data: json,
+    };
   throw new Error(json.message);
 }
 
@@ -26,7 +30,7 @@ export async function login(data: ILoginForm) {
   });
 }
 
-export async function post(data: CreatePostParams) {
+export async function post(data: CreatePostParams): Promise<Res<CreatePostResponse>> {
   return await fetch(`${API_URL}/post`, {
     method: 'POST',
     body: JSON.stringify(data),

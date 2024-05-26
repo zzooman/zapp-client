@@ -11,6 +11,7 @@ import API from '@/app/_lib/fetcher/fetcher';
 import ProductStock from './ProductStock';
 
 import AWS from 'aws-sdk';
+import { useRouter } from 'next/navigation';
 
 export default function PostingPage() {
   const mediaRef = useRef<Media[]>([]);
@@ -19,41 +20,49 @@ export default function PostingPage() {
   const contentRef = useRef<string>('');
   const stock = useRef<number>(1);
 
-  const onSubmit: MouseEventHandler<HTMLButtonElement> = useCallback(async e => {
-    e.preventDefault();
-    const postingState: Omit<Post, 'medias'> = {
-      title: titleRef.current,
-      content: contentRef.current,
-      price: priceRef.current,
-      stock: stock.current,
-    };
+  const router = useRouter();
 
-    AWS.config.update({
-      region: process.env.NEXT_PUBLIC_AWS_REGION,
-      accessKeyId: process.env.NEXT_PUBLIC_AWS_ACCESS_KEY,
-      secretAccessKey: process.env.NEXT_PUBLIC_AWS_SECRET_ACCESS_KEY,
-    });
+  const onSubmit: MouseEventHandler<HTMLButtonElement> = useCallback(
+    async e => {
+      e.preventDefault();
+      const postingState: Omit<Post, 'medias'> = {
+        title: titleRef.current,
+        content: contentRef.current,
+        price: priceRef.current,
+        stock: stock.current,
+      };
 
-    const mideasPromise = mediaRef.current.map(async media => {
-      const upload = new AWS.S3.ManagedUpload({
-        params: {
-          ACL: 'public-read',
-          Bucket: process.env.NEXT_PUBLIC_S3_BUCKET!,
-          Key: `${Date.now()}/${media.file.name}`,
-          Body: media.file,
-        },
+      AWS.config.update({
+        region: process.env.NEXT_PUBLIC_AWS_REGION,
+        accessKeyId: process.env.NEXT_PUBLIC_AWS_ACCESS_KEY,
+        secretAccessKey: process.env.NEXT_PUBLIC_AWS_SECRET_ACCESS_KEY,
       });
-      return await upload.promise().then(data => data.Location);
-    });
 
-    const medias = await Promise.all(mideasPromise);
-    const posting: CreatePostParams = {
-      ...postingState,
-      medias,
-    };
-    const response = await API.post(posting);
-    console.log('response', response);
-  }, []);
+      const mideasPromise = mediaRef.current.map(async media => {
+        const upload = new AWS.S3.ManagedUpload({
+          params: {
+            ACL: 'public-read',
+            Bucket: process.env.NEXT_PUBLIC_S3_BUCKET!,
+            Key: `${Date.now()}/${media.file.name}`,
+            Body: media.file,
+          },
+        });
+        return await upload.promise().then(data => data.Location);
+      });
+
+      const medias = await Promise.all(mideasPromise);
+      const posting: CreatePostParams = {
+        ...postingState,
+        medias,
+      };
+      const response = await API.post(posting);
+      if (response.status === 200) {
+        alert('게시물이 성공적으로 등록되었습니다.');
+        router.push('/');
+      }
+    },
+    [router]
+  );
 
   return (
     <form className="flex flex-col justify-start space-y-6 pt-16 mb-28 px-4 h-screen">
