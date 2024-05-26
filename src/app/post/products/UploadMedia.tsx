@@ -13,22 +13,18 @@ export default forwardRef(function UploadMedia(props, ref: ForwardedRef<Media[]>
 
   const onInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
-    const fileReader = new FileReader();
-    const formData = new FormData();
     if (file) {
-      if (file.type.includes('video')) {
-        fileReader.onload = () => {
+      const fileReader = new FileReader();
+      fileReader.onload = () => {
+        const formData = new FormData(); // 새로운 FormData 인스턴스 생성
+        formData.append('media', file);
+        if (file.type.includes('video')) {
           const videoUrl = URL.createObjectURL(file);
-          formData.append('video', file);
-          setMedias(prev => [...prev, { type: 'video', url: videoUrl, form: formData }]);
-        };
-      } else {
-        fileReader.onload = () => {
-          formData.append('image', file);
-          setMedias(prev => [...prev, { type: 'image', url: fileReader.result as string, form: formData }]);
-        };
-      }
-
+          setMedias(prev => [...prev, { type: 'video', url: videoUrl, file }]);
+        } else {
+          setMedias(prev => [...prev, { type: 'image', url: fileReader.result as string, file }]);
+        }
+      };
       fileReader.readAsDataURL(file);
     }
   };

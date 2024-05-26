@@ -1,7 +1,7 @@
 export interface Media {
   type: 'image' | 'video';
   url: string;
-  form?: FormData;
+  file: File;
 }
 
 export interface Post {
@@ -12,10 +12,9 @@ export interface Post {
   medias: Media[];
 }
 
-export interface CreatePostPayload {
-  title: string;
-  content: string;
-  price: string;
-  stock: number;
-  medias: FormData[];
+export interface S3UploadResponse {
+  Key: string;
+  Location: string;
+  Bucket: string;
+  ETag: string;
 }
