@@ -1,7 +1,7 @@
 'use client';
 
 import { MouseEventHandler, useCallback, useRef } from 'react';
-import { Media, Post } from '@/app/_lib/types/types';
+import { CreatePostParams, Media, Post } from '@/app/_lib/types/types';
 import PostTitle from '@/app/post/products/PostTitle';
 import UploadMedia from '@/app/post/products/UploadMedia';
 import ProductPrice from '@/app/post/products/ProductPrice';
@@ -34,22 +34,25 @@ export default function PostingPage() {
       secretAccessKey: process.env.NEXT_PUBLIC_AWS_SECRET_ACCESS_KEY,
     });
 
-    mediaRef.current.forEach(async media => {
-      if (media.file) {
-        const upload = new AWS.S3.ManagedUpload({
-          params: {
-            ACL: 'public-read',
-            Bucket: process.env.NEXT_PUBLIC_S3_BUCKET!,
-            Key: `${Date.now()}/${media.file.name}`,
-            Body: media.file,
-          },
-        });
-        await upload.promise().then(data => {
-          data.Location;
-        });
-      }
+    const mideasPromise = mediaRef.current.map(async media => {
+      const upload = new AWS.S3.ManagedUpload({
+        params: {
+          ACL: 'public-read',
+          Bucket: process.env.NEXT_PUBLIC_S3_BUCKET!,
+          Key: `${Date.now()}/${media.file.name}`,
+          Body: media.file,
+        },
+      });
+      return await upload.promise().then(data => data.Location);
     });
-    // const res1 = await API.post(postingState);
+
+    const medias = await Promise.all(mideasPromise);
+    const posting: CreatePostParams = {
+      ...postingState,
+      medias,
+    };
+    const response = await API.post(posting);
+    console.log('response', response);
   }, []);
 
   return (

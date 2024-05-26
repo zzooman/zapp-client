@@ -1,6 +1,6 @@
 import { ILoginForm } from '@/app/login/loginForm';
 import { ISignupForm } from '@/app/signup/signupForm';
-import { Post } from '../types/types';
+import { CreatePostParams, Post } from '../types/types';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 export async function handleResponse(res: Response) {
@@ -26,7 +26,7 @@ export async function login(data: ILoginForm) {
   });
 }
 
-export async function post(data: Omit<Post, 'medias'>) {
+export async function post(data: CreatePostParams) {
   return await fetch(`${API_URL}/post`, {
     method: 'POST',
     body: JSON.stringify(data),
@@ -35,18 +35,9 @@ export async function post(data: Omit<Post, 'medias'>) {
   }).then(handleResponse);
 }
 
-export async function uploadMedia(media: FormData) {
-  return await fetch(`${API_URL}/post/media`, {
-    method: 'POST',
-    body: media,
-    credentials: 'include',
-  }).then(handleResponse);
-}
-
 const API = {
   signup,
   login,
   post,
-  uploadMedia,
 };
 export default API;

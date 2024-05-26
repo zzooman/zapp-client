@@ -12,6 +12,14 @@ export interface Post {
   medias: Media[];
 }
 
+export interface CreatePostParams {
+  title: string;
+  content: string;
+  price: string;
+  stock: number;
+  medias: string[];
+}
+
 export interface S3UploadResponse {
   Key: string;
   Location: string;
