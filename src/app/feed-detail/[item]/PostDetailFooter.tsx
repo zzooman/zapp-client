@@ -11,7 +11,7 @@ interface Props {
   price: number;
   liked: boolean;
 }
-export default function FeedDetailFooter({ price, liked }: Props) {
+export default function PostDetailFooter({ price, liked }: Props) {
   const router = useRouter();
   return (
     <footer className="fixed bottom-0 left-[50%] transform -translate-x-[50%] max-w-3xl z-20 w-full h-16 flex justify-between items-center px-4 border-t border-gray-500 bg-base">

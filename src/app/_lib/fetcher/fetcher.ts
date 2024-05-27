@@ -1,6 +1,6 @@
 import { ILoginForm } from '@/app/login/loginForm';
 import { ISignupForm } from '@/app/signup/signupForm';
-import { CreatePostParams, CreatePostResponse, Post, Res } from '../types/types';
+import { CreatePostParams, CreatePostResponse, GetPostsParams, Post, Res } from '../types/types';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 export async function handleResponse(res: Response) {
@@ -34,6 +34,14 @@ export async function post(data: CreatePostParams): Promise<Res<CreatePostRespon
   return await fetch(`${API_URL}/post`, {
     method: 'POST',
     body: JSON.stringify(data),
+    headers: { 'Content-Type': 'application/json' },
+    credentials: 'include',
+  }).then(handleResponse);
+}
+
+export async function getPosts({ limit, offset }: GetPostsParams): Promise<Res<any[]>> {
+  return await fetch(`${API_URL}/posts?limit=${limit}&offset=${offset}`, {
+    method: 'GET',
     headers: { 'Content-Type': 'application/json' },
     credentials: 'include',
   }).then(handleResponse);

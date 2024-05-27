@@ -4,34 +4,32 @@ import { timeLapse } from '@/app/_lib/utils/utils';
 
 import 'swiper/css';
 import 'swiper/css/pagination';
-import { DUMMY } from '@/app/_components/feeds/FeedsList';
 
-export default function FeedDetailPage() {
-  const feed = DUMMY[0];
+export default function PostDetailPage() {
   return (
     <main>
       <section className="mb-16">
-        <MediaSlider medias={feed.medias} aspectRatio="1/1" objectFit="cover" />
+        <MediaSlider medias={post.medias} aspectRatio="1/1" objectFit="cover" />
         <article className="flex justify-between items-center p-4">
           <div className="flex items-center">
             <Image
-              src={feed.seller.profile}
+              src={post.seller.profile}
               width={35}
               height={35}
               className="rounded-full aspect-square object-cover"
               alt="profile"
               priority
             />
-            <span className="ml-2">{feed.seller.username}</span>
+            <span className="ml-2">{post.seller.username}</span>
           </div>
         </article>
         <article className="flex flex-col space-y-2 px-4">
-          <h2 className="font-bold text-2xl">{feed.title}</h2>
+          <h2 className="font-bold text-2xl">{post.title}</h2>
           <div className="flex space-x-4 text-sm opacity-50">
-            <span>{timeLapse(feed.createdAt)}</span>
-            <span>조회 {feed.counts.views}</span>
+            <span>{timeLapse(post.createdAt)}</span>
+            <span>조회 {post.counts.views}</span>
           </div>
-          <p className="text-sm">{feed.content}</p>
+          <p className="text-sm">{post.content}</p>
         </article>
       </section>
     </main>

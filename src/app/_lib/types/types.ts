@@ -42,3 +42,7 @@ export interface CreatePostResponse {
   stock: number;
   views: number;
 }
+export interface GetPostsParams {
+  limit: number;
+  offset: number;
+}
