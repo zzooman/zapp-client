@@ -6,7 +6,12 @@ export interface Res<T> {
 export interface Media {
   type: 'image' | 'video';
   url: string;
-  file?: File;
+}
+
+export interface PostMedia {
+  type: 'image' | 'video';
+  url: string;
+  file: File;
 }
 
 export interface Post {

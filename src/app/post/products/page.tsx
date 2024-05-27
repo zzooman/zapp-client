@@ -1,7 +1,7 @@
 'use client';
 
 import { MouseEventHandler, useCallback, useRef } from 'react';
-import { CreatePostParams, Media, Post } from '@/app/_lib/types/types';
+import { CreatePostParams, PostMedia } from '@/app/_lib/types/types';
 import PostTitle from '@/app/post/products/PostTitle';
 import UploadMedia from '@/app/post/products/UploadMedia';
 import ProductPrice from '@/app/post/products/ProductPrice';
@@ -14,7 +14,7 @@ import AWS from 'aws-sdk';
 import { useRouter } from 'next/navigation';
 
 export default function PostingPage() {
-  const mediaRef = useRef<Media[]>([]);
+  const mediaRef = useRef<PostMedia[]>([]);
   const titleRef = useRef<string>('');
   const priceRef = useRef<string>('');
   const contentRef = useRef<string>('');

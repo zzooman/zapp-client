@@ -11,7 +11,10 @@ export async function handleResponse(res: Response) {
         status: res.status,
         data: json,
       };
-    throw new Error(json.message ?? 'An error occurred.');
+    if (res.status === 401) {
+      throw new Error('로그인이 필요합니다.');
+    }
+    throw new Error(json.error ?? 'An error occurred.');
   } catch (error: unknown) {
     return {
       status: res.status,
