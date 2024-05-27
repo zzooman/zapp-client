@@ -9,7 +9,7 @@ import 'swiper/css/pagination';
 import '@/css/swiper.css';
 
 interface Props {
-  medias: Media[];
+  medias: Omit<Media, 'file'>[];
   objectFit?: 'contain' | 'cover' | 'fill' | 'none' | 'scale-down';
   aspectRatio?: '16/9' | '4/3' | '1/1' | '3/4' | '9/16';
 }

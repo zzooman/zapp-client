@@ -1,3 +1,5 @@
+import { GetPostsResponse, PostItem } from '../types/types';
+
 export class Functor<T> {
   constructor(public value: T) {}
   map<U>(f: (value: T) => U): Functor<U> {
@@ -24,4 +26,11 @@ export function timeLapse(createdAt: string) {
   } else {
     return `${diffSeconds}초 전`;
   }
+}
+
+export function postsConvertor(initialPosts: GetPostsResponse[]): PostItem[] {
+  return initialPosts.map(post => ({
+    ...post,
+    medias: post.media.map(url => ({ type: url.includes('mp4') ? 'video' : 'image', url })),
+  }));
 }

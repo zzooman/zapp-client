@@ -1,16 +1,23 @@
 import { ILoginForm } from '@/app/login/loginForm';
 import { ISignupForm } from '@/app/signup/signupForm';
-import { CreatePostParams, CreatePostResponse, GetPostsParams, Post, Res } from '../types/types';
+import { CreatePostParams, CreatePostResponse, GetPostsParams, GetPostsResponse, Post, Res } from '../types/types';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 export async function handleResponse(res: Response) {
-  const json = await res.json();
-  if (res.ok)
+  try {
+    const json = await res.json();
+    if (res.ok)
+      return {
+        status: res.status,
+        data: json,
+      };
+    throw new Error(json.message ?? 'An error occurred.');
+  } catch (error: unknown) {
     return {
       status: res.status,
-      data: json,
+      data: String(error),
     };
-  throw new Error(json.message);
+  }
 }
 
 export async function signup(data: ISignupForm) {
@@ -39,7 +46,8 @@ export async function post(data: CreatePostParams): Promise<Res<CreatePostRespon
   }).then(handleResponse);
 }
 
-export async function getPosts({ limit, offset }: GetPostsParams): Promise<Res<any[]>> {
+export async function getPosts({ limit, offset }: GetPostsParams): Promise<Res<GetPostsResponse[]>> {
+  console.log(`${API_URL}/posts?limit=${limit}&offset=${offset}`);
   return await fetch(`${API_URL}/posts?limit=${limit}&offset=${offset}`, {
     method: 'GET',
     headers: { 'Content-Type': 'application/json' },

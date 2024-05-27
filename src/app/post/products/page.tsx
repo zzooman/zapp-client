@@ -25,7 +25,7 @@ export default function PostingPage() {
   const onSubmit: MouseEventHandler<HTMLButtonElement> = useCallback(
     async e => {
       e.preventDefault();
-      const postingState: Omit<Post, 'medias'> = {
+      const postingState: any = {
         title: titleRef.current,
         content: contentRef.current,
         price: priceRef.current,

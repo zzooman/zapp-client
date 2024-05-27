@@ -14,7 +14,7 @@ export interface Post {
   content: string;
   price: string;
   stock: number;
-  medias: Media[];
+  medias: Omit<Media, 'file'>[];
 }
 
 export interface S3UploadResponse {
@@ -45,4 +45,28 @@ export interface CreatePostResponse {
 export interface GetPostsParams {
   limit: number;
   offset: number;
+}
+export interface GetPostsResponse {
+  id: number;
+  author: string;
+  title: string;
+  content: string;
+  media: string[];
+  price: number;
+  stock: number;
+  views: number;
+  created_at: string;
+  isLiked: boolean;
+}
+export interface PostItem {
+  id: number;
+  author: string;
+  title: string;
+  content: string;
+  medias: Omit<Media, 'file'>[];
+  price: number;
+  stock: number;
+  views: number;
+  created_at: string;
+  isLiked: boolean;
 }
