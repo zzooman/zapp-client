@@ -48,7 +48,7 @@ export interface GetPostsParams {
 }
 export interface GetPostsResponse {
   id: number;
-  author: string;
+  author: User;
   title: string;
   content: string;
   media: string[];
@@ -58,9 +58,16 @@ export interface GetPostsResponse {
   created_at: string;
   isLiked: boolean;
 }
+export interface User {
+  id: number;
+  username: string;
+  email: string;
+  phone: string;
+  profile: string | null;
+}
 export interface PostItem {
   id: number;
-  author: string;
+  author: User;
   title: string;
   content: string;
   medias: Omit<Media, 'file'>[];

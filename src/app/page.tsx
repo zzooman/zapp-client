@@ -8,7 +8,7 @@ import API from './_lib/fetcher/fetcher';
 
 export default async function HomePage() {
   const posts = await API.getPosts({ limit: 10, offset: 0 });
-
+  console.log(posts.data);
   return (
     <Container>
       <Header menu />

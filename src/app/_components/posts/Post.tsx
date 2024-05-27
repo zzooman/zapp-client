@@ -18,7 +18,7 @@ interface Props {
 export default function Post({ post }: Props) {
   return (
     <Link href={`/post-detail/${post.id}`}>
-      <PostAuthor post={post} />
+      <PostAuthor author={post.author} />
       <div className="w-full aspect-video">
         <MediaSlider medias={post.medias} />
       </div>
