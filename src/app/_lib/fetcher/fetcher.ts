@@ -51,5 +51,6 @@ const API = {
   signup,
   login,
   post,
+  getPosts,
 };
 export default API;
