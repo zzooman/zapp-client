@@ -29,8 +29,9 @@ export function timeLapse(createdAt: string) {
 }
 
 export function postsConvertor(initialPosts: GetPostsResponse[]): PostItem[] {
-  return initialPosts.map(post => ({
+  console.log('initialPosts', initialPosts);
+  return initialPosts?.map(post => ({
     ...post,
-    medias: post.media.map(url => ({ type: url.includes('mp4') ? 'video' : 'image', url })),
+    medias: post.medias.map(url => ({ type: url.includes('mp4') ? 'video' : 'image', url })),
   }));
 }

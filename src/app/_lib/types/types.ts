@@ -6,7 +6,7 @@ export interface Res<T> {
 export interface Media {
   type: 'image' | 'video';
   url: string;
-  file: File;
+  file?: File;
 }
 
 export interface Post {
@@ -14,7 +14,7 @@ export interface Post {
   content: string;
   price: string;
   stock: number;
-  medias: Omit<Media, 'file'>[];
+  medias: Media[];
 }
 
 export interface S3UploadResponse {
@@ -37,7 +37,7 @@ export interface CreatePostResponse {
   content: string;
   created_at: unknown;
   id: number;
-  media: string[];
+  medias: string[];
   price: number;
   stock: number;
   views: number;
@@ -51,7 +51,7 @@ export interface GetPostsResponse {
   author: User;
   title: string;
   content: string;
-  media: string[];
+  medias: string[];
   price: number;
   stock: number;
   views: number;
@@ -70,7 +70,7 @@ export interface PostItem {
   author: User;
   title: string;
   content: string;
-  medias: Omit<Media, 'file'>[];
+  medias: Media[];
   price: number;
   stock: number;
   views: number;
