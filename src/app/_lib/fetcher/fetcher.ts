@@ -66,11 +66,20 @@ export async function getPosts({ limit, offset }: GetPostsParams): Promise<Res<G
   }).then(handleResponse);
 }
 
+export async function toggleLikePost(id: number, isLiked: boolean) {
+  return await fetch(`${API_URL}/post/${id}/${isLiked ? 'like' : 'unlike'}`, {
+    method: isLiked ? 'POST' : 'DELETE',
+    headers: { 'Content-Type': 'application/json' },
+    credentials: 'include',
+  }).then(handleResponse);
+}
+
 const API = {
   signup,
   login,
   post,
   getPost,
   getPosts,
+  toggleLikePost,
 };
 export default API;

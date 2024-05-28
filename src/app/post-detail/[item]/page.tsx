@@ -52,7 +52,7 @@ export default async function PostDetailPage({ params }: Params) {
           </article>
         </section>
       </main>
-      <PostDetailFooter liked={post.data.isLiked} price={post.data.price} />
+      <PostDetailFooter id={post.data.id} liked={post.data.isLiked} price={post.data.price} />
     </>
   );
 }
