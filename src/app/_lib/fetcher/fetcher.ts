@@ -1,6 +1,6 @@
 import { ILoginForm } from '@/app/login/loginForm';
 import { ISignupForm } from '@/app/signup/signupForm';
-import { CreatePostParams, CreatePostResponse, GetPostsParams, GetPostsResponse, Post, Res } from '../types/types';
+import { CreatePostParams, CreatePostResponse, GetPostResponse, GetPostsParams, Res } from '../types/types';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 export async function handleResponse(res: Response) {
@@ -49,7 +49,15 @@ export async function post(data: CreatePostParams): Promise<Res<CreatePostRespon
   }).then(handleResponse);
 }
 
-export async function getPosts({ limit, offset }: GetPostsParams): Promise<Res<GetPostsResponse[]>> {
+export async function getPost(id: number): Promise<Res<GetPostResponse>> {
+  return await fetch(`${API_URL}/post/${id}`, {
+    method: 'GET',
+    headers: { 'Content-Type': 'application/json' },
+    credentials: 'include',
+  }).then(handleResponse);
+}
+
+export async function getPosts({ limit, offset }: GetPostsParams): Promise<Res<GetPostResponse[]>> {
   console.log(`${API_URL}/posts?limit=${limit}&offset=${offset}`);
   return await fetch(`${API_URL}/posts?limit=${limit}&offset=${offset}`, {
     method: 'GET',
@@ -62,6 +70,7 @@ const API = {
   signup,
   login,
   post,
+  getPost,
   getPosts,
 };
 export default API;

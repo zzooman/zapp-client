@@ -51,7 +51,7 @@ export interface GetPostsParams {
   limit: number;
   offset: number;
 }
-export interface GetPostsResponse {
+export interface GetPostResponse {
   id: number;
   author: User;
   title: string;

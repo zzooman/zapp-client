@@ -1,15 +1,14 @@
 'use client';
 
-import { GetPostsResponse, PostItem } from '@/app/_lib/types/types';
+import { GetPostResponse, PostItem } from '@/app/_lib/types/types';
 import { useState } from 'react';
 import Post from './Post';
-import { postsConvertor } from '@/app/_lib/utils/utils';
 
 interface Params {
-  initialPosts: GetPostsResponse[];
+  initialPosts: GetPostResponse[];
 }
 export default function PostList({ initialPosts }: Params) {
-  const [posts, setPosts] = useState<PostItem[]>(postsConvertor(initialPosts));
+  const [posts, setPosts] = useState<GetPostResponse[]>(initialPosts);
 
   return (
     <div className="min-h-screen max-w-5xl w-full my-16">

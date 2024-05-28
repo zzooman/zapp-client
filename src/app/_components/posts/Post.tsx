@@ -1,18 +1,16 @@
 import React from 'react';
 import Link from 'next/link';
+import { currency, mediasConvertor } from '@/app/_lib/utils/utils';
+import MediaSlider from '../common/swiper/MediaSlider';
+import PostAuthor from './Author';
+import { GetPostResponse } from '@/app/_lib/types/types';
 
 import 'swiper/css';
 import 'swiper/css/pagination';
-
 import '@/css/swiper.css';
 
-import { currency } from '@/app/_lib/utils/utils';
-import MediaSlider from '../common/swiper/MediaSlider';
-import PostAuthor from './Author';
-import { PostItem } from '@/app/_lib/types/types';
-
 interface Props {
-  post: PostItem;
+  post: GetPostResponse;
 }
 
 export default function Post({ post }: Props) {
@@ -20,7 +18,7 @@ export default function Post({ post }: Props) {
     <Link href={`/post-detail/${post.id}`}>
       <PostAuthor author={post.author} />
       <div className="w-full aspect-video">
-        <MediaSlider medias={post.medias} />
+        <MediaSlider medias={mediasConvertor(post.medias)} />
       </div>
       <div className="flex flex-col p-4">
         <div className="flex justify-between items-center">

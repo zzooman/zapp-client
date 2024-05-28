@@ -8,7 +8,7 @@ export default function PostDetailLayout({ children }: PropsWithChildren) {
     <Container>
       <PostDetailHeader />
       {children}
-      <PostDetailFooter liked={post.liked} price={post.price} />
+      {/* <PostDetailFooter liked={post.liked} price={post.price} /> */}
     </Container>
   );
 }
