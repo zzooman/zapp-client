@@ -1,6 +1,6 @@
 'use client';
 
-import { GetPostResponse, PostItem } from '@/app/_lib/types/types';
+import { GetPostResponse } from '@/app/_lib/types/types';
 import { useState } from 'react';
 import Post from './Post';
 

@@ -14,12 +14,12 @@ export interface PostMedia {
   file: File;
 }
 
-export interface Post {
-  title: string;
-  content: string;
-  price: string;
-  stock: number;
-  medias: Media[];
+export interface User {
+  id: number;
+  username: string;
+  email: string;
+  phone: string;
+  profile: string | null;
 }
 
 export interface S3UploadResponse {
@@ -57,25 +57,6 @@ export interface GetPostResponse {
   title: string;
   content: string;
   medias: string[];
-  price: number;
-  stock: number;
-  views: number;
-  created_at: string;
-  isLiked: boolean;
-}
-export interface User {
-  id: number;
-  username: string;
-  email: string;
-  phone: string;
-  profile: string | null;
-}
-export interface PostItem {
-  id: number;
-  author: User;
-  title: string;
-  content: string;
-  medias: Media[];
   price: number;
   stock: number;
   views: number;
