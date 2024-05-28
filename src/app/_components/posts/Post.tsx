@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { currency, mediasConvertor } from '@/app/_lib/utils/utils';
+import { currency, mediasConvertor, timeLapse } from '@/app/_lib/utils/utils';
 import MediaSlider from '../common/swiper/MediaSlider';
 import PostAuthor from './Author';
 import { GetPostResponse } from '@/app/_lib/types/types';
@@ -22,15 +22,16 @@ export default function Post({ post }: Props) {
       </div>
       <div className="flex flex-col p-4">
         <div className="flex justify-between items-center">
-          <h2 className="text-lg">{post.title}</h2>
+          <h2 className="text-sm font-bold text-slate-200 flex justify-between items-center w-full">
+            {post.title}
+            <span className="text-xs ml-2 text-slate-600">{timeLapse(post.created_at)}</span>
+          </h2>
           <div className="flex">
-            <div>{post.stock}</div>
-            <div>{post.isLiked}</div>
-            <div>{post.created_at}</div>
+            <div className="font-bold">{post.isLiked}</div>
           </div>
         </div>
-        <strong className="mt-1">{currency(post.price)}원</strong>
-        <p className="text-sm mt-2 truncate-2">{post.content}</p>
+        <strong className="mt-2 text-slate-200">{currency(post.price)} 원</strong>
+        <p className="text-xs mt-2 truncate-2 text-slate-400">{post.content}</p>
       </div>
     </Link>
   );
