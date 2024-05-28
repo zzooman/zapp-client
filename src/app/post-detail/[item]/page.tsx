@@ -27,28 +27,28 @@ export default async function PostDetailPage({ params }: Params) {
               {post.data.author.profile ? (
                 <Image
                   src={post.data.author.profile ?? ''}
-                  width={35}
-                  height={35}
+                  width={30}
+                  height={30}
                   className="rounded-full aspect-square object-cover"
                   alt="profile"
                   priority
                 />
               ) : (
-                <div className="flex justify-center items-center w-[35px] aspect-square rounded-full bg-gray-800">
+                <div className="flex justify-center items-center w-[30px] aspect-square rounded-full bg-gray-800">
                   <FontAwesomeIcon icon={faUser} className="text-slate-400" />
                 </div>
               )}
-              <span className="ml-2">{post.data.author.username}</span>
+              <span className="ml-2 text-sm text-slate-300">{post.data.author.username}</span>
             </div>
           </article>
-          <article className="flex flex-col space-y-2 px-4 mt-3">
-            <h2 className="font-bold text-2xl">{post.data.title}</h2>
-            <div className="flex space-x-2 opacity-50 text-xs">
+          <article className="flex flex-col px-4 mt-3">
+            <h2 className="font-bold text-lg">{post.data.title}</h2>
+            <div className="flex space-x-2 opacity-50 text-[10px]">
               <span>{timeLapse(post.data.created_at)}</span>
             </div>
           </article>
-          <article className="px-4 mt-6">
-            <p className="text-sm text-slate-300">{post.data.content}</p>
+          <article className="px-4 mt-4">
+            <p className="text-sm text-slate-200">{post.data.content}</p>
           </article>
         </section>
       </main>
