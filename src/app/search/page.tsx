@@ -3,48 +3,28 @@ import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import SearchForm from './SearchForm';
 import Link from 'next/link';
+import API from '../_lib/fetcher/fetcher';
 
-export default function SearchPage() {
+export default async function SearchPage() {
+  const { data: hotSearchTexts } = await API.getHotSearchTexts();
+
   return (
     <main className="p-4 flex flex-col gap-8">
       <SearchForm />
-      <section className="mt-16">
-        <h2 className="font-bold text-sm mb-2">인기 검색어</h2>
-        <div className="overflow-auto scrollbar-hide">
-          <ul className="flex w-max h-max gap-3 mt-2 overflow-auto">
-            <li className="border border-slate-500 text-white px-3 py-1 rounded-full text-sm">
-              <Link href={`/search/result?q=${'코로나'}`}>코로나</Link>
-            </li>
-            <li className="border border-slate-500 text-white px-3 py-1 rounded-full text-sm">
-              <Link href={`/search/result?q=${'코로나'}`}>코로나</Link>
-            </li>
-            <li className="border border-slate-500 text-white px-3 py-1 rounded-full text-sm">
-              <Link href={`/search/result?q=${'코로나'}`}>코로나</Link>
-            </li>
-            <li className="border border-slate-500 text-white px-3 py-1 rounded-full text-sm">
-              <Link href={`/search/result?q=${'코로나'}`}>코로나</Link>
-            </li>
-            <li className="border border-slate-500 text-white px-3 py-1 rounded-full text-sm">
-              <Link href={`/search/result?q=${'코로나'}`}>코로나</Link>
-            </li>
-            <li className="border border-slate-500 text-white px-3 py-1 rounded-full text-sm">
-              <Link href={`/search/result?q=${'코로나'}`}>코로나</Link>
-            </li>
-            <li className="border border-slate-500 text-white px-3 py-1 rounded-full text-sm">
-              <Link href={`/search/result?q=${'코로나'}`}>코로나</Link>
-            </li>
-            <li className="border border-slate-500 text-white px-3 py-1 rounded-full text-sm">
-              <Link href={`/search/result?q=${'코로나'}`}>코로나</Link>
-            </li>
-            <li className="border border-slate-500 text-white px-3 py-1 rounded-full text-sm">
-              <Link href={`/search/result?q=${'코로나'}`}>코로나</Link>
-            </li>
-            <li className="border border-slate-500 text-white px-3 py-1 rounded-full text-sm">
-              <Link href={`/search/result?q=${'코로나'}`}>코로나</Link>
-            </li>
-          </ul>
-        </div>
-      </section>
+      {hotSearchTexts.length > 0 && (
+        <section className="mt-16">
+          <h2 className="font-bold text-sm mb-2">인기 검색어</h2>
+          <div className="overflow-auto scrollbar-hide">
+            <ul className="flex w-max h-max gap-3 mt-2 overflow-auto">
+              {hotSearchTexts.map((search, i) => (
+                <li key={i} className="border border-slate-500 text-white px-3 py-1 rounded-full text-sm">
+                  <Link href={`/search/result?q=${search.search_text}`}>{search.search_text}</Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      )}
 
       <section>
         <h2 className="font-bold text-sm mb-4">최근 검색어</h2>

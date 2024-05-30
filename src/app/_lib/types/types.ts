@@ -63,3 +63,9 @@ export interface GetPostResponse {
   created_at: string;
   isLiked: boolean;
 }
+export interface SearchTextResponse {
+  id: number;
+  search_text: string;
+  count: number;
+  created_at: string;
+}

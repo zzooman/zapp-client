@@ -20,7 +20,7 @@ export default function PostDetailFooter({ id, price, liked }: Props) {
   const [isLiked, setIsLiked] = useState(liked);
   const onClick = async () => {
     setIsLiked(!isLiked);
-    const response = await API.toggleLikePost(id, isLiked);
+    const response = await API.toggleLikePost(id, !isLiked);
     if (response.status !== 200) {
       alert(response.data);
       setIsLiked(liked);

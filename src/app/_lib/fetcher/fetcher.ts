@@ -1,6 +1,13 @@
 import { ILoginForm } from '@/app/login/loginForm';
 import { ISignupForm } from '@/app/signup/signupForm';
-import { CreatePostParams, CreatePostResponse, GetPostResponse, GetPostsParams, Res } from '../types/types';
+import {
+  CreatePostParams,
+  CreatePostResponse,
+  GetPostResponse,
+  GetPostsParams,
+  Res,
+  SearchTextResponse,
+} from '../types/types';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 export async function handleResponse(res: Response) {
@@ -58,8 +65,15 @@ export async function getPost(id: number): Promise<Res<GetPostResponse>> {
 }
 
 export async function getPosts({ limit, offset }: GetPostsParams): Promise<Res<GetPostResponse[]>> {
-  console.log(`${API_URL}/posts?limit=${limit}&offset=${offset}`);
   return await fetch(`${API_URL}/posts?limit=${limit}&offset=${offset}`, {
+    method: 'GET',
+    headers: { 'Content-Type': 'application/json' },
+    credentials: 'include',
+  }).then(handleResponse);
+}
+
+export async function searchPosts({ limit, offset, query }: GetPostsParams & { query: string }) {
+  return await fetch(`${API_URL}/posts/search?query=${query}&limit=${limit}&offset=${offset}`, {
     method: 'GET',
     headers: { 'Content-Type': 'application/json' },
     credentials: 'include',
@@ -74,6 +88,14 @@ export async function toggleLikePost(id: number, isLiked: boolean) {
   }).then(handleResponse);
 }
 
+export async function getHotSearchTexts(): Promise<Res<SearchTextResponse[]>> {
+  return await fetch(`${API_URL}/search/hot`, {
+    method: 'GET',
+    headers: { 'Content-Type': 'application/json' },
+    credentials: 'include',
+  }).then(handleResponse);
+}
+
 const API = {
   signup,
   login,
@@ -81,5 +103,7 @@ const API = {
   getPost,
   getPosts,
   toggleLikePost,
+  searchPosts,
+  getHotSearchTexts,
 };
 export default API;
