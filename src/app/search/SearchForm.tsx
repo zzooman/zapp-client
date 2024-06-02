@@ -15,8 +15,10 @@ export default function SearchForm() {
         alert(response.data);
         return;
       }
-      console.log(response.data);
-      // router.push(`/search/result?q=${query}`);
+      const recentSearches = JSON.parse(localStorage.getItem(`zapp-recent-searches`) ?? '[]');
+      recentSearches.push(query);
+      localStorage.setItem(`zapp-recent-searches`, JSON.stringify(recentSearches));
+      router.push(`/search/result?q=${query}`);
     });
   };
 
