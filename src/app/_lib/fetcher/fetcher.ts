@@ -5,6 +5,7 @@ import {
   CreatePostResponse,
   GetPostResponse,
   GetPostsParams,
+  PostWithAuthor,
   Res,
   SearchTextResponse,
 } from '../types/types';
@@ -56,7 +57,7 @@ export async function post(data: CreatePostParams): Promise<Res<CreatePostRespon
   }).then(handleResponse);
 }
 
-export async function getPost(id: number): Promise<Res<GetPostResponse>> {
+export async function getPost(id: number): Promise<Res<PostWithAuthor>> {
   return await fetch(`${API_URL}/post/${id}`, {
     method: 'GET',
     headers: { 'Content-Type': 'application/json' },
@@ -64,20 +65,21 @@ export async function getPost(id: number): Promise<Res<GetPostResponse>> {
   }).then(handleResponse);
 }
 
-export async function getPosts({ limit, offset }: GetPostsParams): Promise<Res<GetPostResponse[]>> {
-  return await fetch(`${API_URL}/posts?limit=${limit}&offset=${offset}`, {
+export async function getPosts({ limit, page }: GetPostsParams): Promise<Res<GetPostResponse>> {
+  return await fetch(`${API_URL}/posts?limit=${limit}&page=${page}`, {
     method: 'GET',
     headers: { 'Content-Type': 'application/json' },
     credentials: 'include',
+    cache: 'no-store',
   }).then(handleResponse);
 }
 
 export async function searchPosts({
   limit,
-  offset,
+  page,
   query,
-}: GetPostsParams & { query: string }): Promise<Res<GetPostResponse[]>> {
-  return await fetch(`${API_URL}/posts/search?query=${query}&limit=${limit}&offset=${offset}`, {
+}: GetPostsParams & { query: string }): Promise<Res<GetPostResponse>> {
+  return await fetch(`${API_URL}/posts/search?query=${query}&limit=${limit}&page=${page}`, {
     method: 'GET',
     headers: { 'Content-Type': 'application/json' },
     credentials: 'include',

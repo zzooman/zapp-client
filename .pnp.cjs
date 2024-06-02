@@ -43,6 +43,7 @@ const RAW_RUNTIME_STATE =
           ["next", "virtual:f07464c37ca04a40ede0ee59325345ae4210016424eafee5450c11b7b98e537f542f55e4b19ff7b0ef1cbb8d8b88d58eef1cee1c50472ba9f7242ad1f5695a34#npm:14.0.4"],\
           ["postcss", "npm:8.4.32"],\
           ["react", "npm:18.2.0"],\
+          ["react-cookie", "virtual:f07464c37ca04a40ede0ee59325345ae4210016424eafee5450c11b7b98e537f542f55e4b19ff7b0ef1cbb8d8b88d58eef1cee1c50472ba9f7242ad1f5695a34#npm:7.1.4"],\
           ["react-dom", "virtual:f07464c37ca04a40ede0ee59325345ae4210016424eafee5450c11b7b98e537f542f55e4b19ff7b0ef1cbb8d8b88d58eef1cee1c50472ba9f7242ad1f5695a34#npm:18.2.0"],\
           ["react-hook-form", "virtual:f07464c37ca04a40ede0ee59325345ae4210016424eafee5450c11b7b98e537f542f55e4b19ff7b0ef1cbb8d8b88d58eef1cee1c50472ba9f7242ad1f5695a34#npm:7.49.2"],\
           ["swiper", "npm:11.1.1"],\
@@ -531,6 +532,26 @@ const RAW_RUNTIME_STATE =
         "packagePeers": [\
           "@types/react",\
           "react"\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@types/cookie", [\
+      ["npm:0.6.0", {\
+        "packageLocation": "./.yarn/cache/@types-cookie-npm-0.6.0-1f4c3f48f0-5b326bd018.zip/node_modules/@types/cookie/",\
+        "packageDependencies": [\
+          ["@types/cookie", "npm:0.6.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@types/hoist-non-react-statics", [\
+      ["npm:3.3.5", {\
+        "packageLocation": "./.yarn/cache/@types-hoist-non-react-statics-npm-3.3.5-98b8d8e47b-2a3b64bf3d.zip/node_modules/@types/hoist-non-react-statics/",\
+        "packageDependencies": [\
+          ["@types/hoist-non-react-statics", "npm:3.3.5"],\
+          ["@types/react", "npm:18.2.46"],\
+          ["hoist-non-react-statics", "npm:3.3.2"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -1307,6 +1328,15 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./.yarn/cache/concat-map-npm-0.0.1-85a921b7ee-c996b1cfdf.zip/node_modules/concat-map/",\
         "packageDependencies": [\
           ["concat-map", "npm:0.0.1"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["cookie", [\
+      ["npm:0.6.0", {\
+        "packageLocation": "./.yarn/cache/cookie-npm-0.6.0-362d6a2e45-f2318b31af.zip/node_modules/cookie/",\
+        "packageDependencies": [\
+          ["cookie", "npm:0.6.0"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -2618,6 +2648,16 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["hasown", "npm:2.0.0"],\
           ["function-bind", "npm:1.1.2"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["hoist-non-react-statics", [\
+      ["npm:3.3.2", {\
+        "packageLocation": "./.yarn/cache/hoist-non-react-statics-npm-3.3.2-e7b709e6c1-fe0889169e.zip/node_modules/hoist-non-react-statics/",\
+        "packageDependencies": [\
+          ["hoist-non-react-statics", "npm:3.3.2"],\
+          ["react-is", "npm:16.13.1"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -4134,6 +4174,31 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["react-cookie", [\
+      ["npm:7.1.4", {\
+        "packageLocation": "./.yarn/cache/react-cookie-npm-7.1.4-1f25fe2202-872117a40c.zip/node_modules/react-cookie/",\
+        "packageDependencies": [\
+          ["react-cookie", "npm:7.1.4"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:f07464c37ca04a40ede0ee59325345ae4210016424eafee5450c11b7b98e537f542f55e4b19ff7b0ef1cbb8d8b88d58eef1cee1c50472ba9f7242ad1f5695a34#npm:7.1.4", {\
+        "packageLocation": "./.yarn/__virtual__/react-cookie-virtual-b39a8b24a8/0/cache/react-cookie-npm-7.1.4-1f25fe2202-872117a40c.zip/node_modules/react-cookie/",\
+        "packageDependencies": [\
+          ["react-cookie", "virtual:f07464c37ca04a40ede0ee59325345ae4210016424eafee5450c11b7b98e537f542f55e4b19ff7b0ef1cbb8d8b88d58eef1cee1c50472ba9f7242ad1f5695a34#npm:7.1.4"],\
+          ["@types/hoist-non-react-statics", "npm:3.3.5"],\
+          ["@types/react", "npm:18.2.46"],\
+          ["hoist-non-react-statics", "npm:3.3.2"],\
+          ["react", "npm:18.2.0"],\
+          ["universal-cookie", "npm:7.1.4"]\
+        ],\
+        "packagePeers": [\
+          "@types/react",\
+          "react"\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["react-dom", [\
       ["npm:18.2.0", {\
         "packageLocation": "./.yarn/cache/react-dom-npm-18.2.0-dd675bca1c-66dfc5f93e.zip/node_modules/react-dom/",\
@@ -5024,6 +5089,17 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["universal-cookie", [\
+      ["npm:7.1.4", {\
+        "packageLocation": "./.yarn/cache/universal-cookie-npm-7.1.4-03692ae496-076b8dfe13.zip/node_modules/universal-cookie/",\
+        "packageDependencies": [\
+          ["universal-cookie", "npm:7.1.4"],\
+          ["@types/cookie", "npm:0.6.0"],\
+          ["cookie", "npm:0.6.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["update-browserslist-db", [\
       ["npm:1.0.13", {\
         "packageLocation": "./.yarn/cache/update-browserslist-db-npm-1.0.13-ea7b8ee24d-e52b8b521c.zip/node_modules/update-browserslist-db/",\
@@ -5304,6 +5380,7 @@ const RAW_RUNTIME_STATE =
           ["next", "virtual:f07464c37ca04a40ede0ee59325345ae4210016424eafee5450c11b7b98e537f542f55e4b19ff7b0ef1cbb8d8b88d58eef1cee1c50472ba9f7242ad1f5695a34#npm:14.0.4"],\
           ["postcss", "npm:8.4.32"],\
           ["react", "npm:18.2.0"],\
+          ["react-cookie", "virtual:f07464c37ca04a40ede0ee59325345ae4210016424eafee5450c11b7b98e537f542f55e4b19ff7b0ef1cbb8d8b88d58eef1cee1c50472ba9f7242ad1f5695a34#npm:7.1.4"],\
           ["react-dom", "virtual:f07464c37ca04a40ede0ee59325345ae4210016424eafee5450c11b7b98e537f542f55e4b19ff7b0ef1cbb8d8b88d58eef1cee1c50472ba9f7242ad1f5695a34#npm:18.2.0"],\
           ["react-hook-form", "virtual:f07464c37ca04a40ede0ee59325345ae4210016424eafee5450c11b7b98e537f542f55e4b19ff7b0ef1cbb8d8b88d58eef1cee1c50472ba9f7242ad1f5695a34#npm:7.49.2"],\
           ["swiper", "npm:11.1.1"],\

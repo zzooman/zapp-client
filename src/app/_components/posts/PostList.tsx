@@ -1,14 +1,23 @@
 'use client';
 
-import { GetPostResponse } from '@/app/_lib/types/types';
-import { useState } from 'react';
+import { PostWithAuthor } from '@/app/_lib/types/types';
+import { useCallback, useRef, useState } from 'react';
 import Post from './Post';
+import Observer from '../common/Observer';
+import API from '@/app/_lib/fetcher/fetcher';
 
 interface Params {
-  initialPosts: GetPostResponse[];
+  initialPosts: PostWithAuthor[];
 }
 export default function PostList({ initialPosts }: Params) {
-  const [posts, setPosts] = useState<GetPostResponse[]>(initialPosts);
+  const [posts, setPosts] = useState<PostWithAuthor[]>(initialPosts);
+  const page = useRef(1);
+
+  const next = useCallback(async () => {
+    const response = await API.getPosts({ limit: 10, page: ++page.current });
+    if (response.status !== 200) return;
+    // setPosts(prev => prev.concat(response.data));
+  }, []);
 
   return (
     <div className="min-h-screen max-w-5xl w-full my-16">
@@ -17,6 +26,7 @@ export default function PostList({ initialPosts }: Params) {
           <Post post={post} key={i} />
         ))}
       </ul>
+      <Observer onShow={next} onHide={() => {}} />
     </div>
   );
 }

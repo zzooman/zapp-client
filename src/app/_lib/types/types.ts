@@ -49,9 +49,14 @@ export interface CreatePostResponse {
 }
 export interface GetPostsParams {
   limit: number;
-  offset: number;
+  page: number;
 }
 export interface GetPostResponse {
+  posts: PostWithAuthor[];
+  next: boolean;
+  keyword?: string;
+}
+export interface PostWithAuthor {
   id: number;
   author: User;
   title: string;

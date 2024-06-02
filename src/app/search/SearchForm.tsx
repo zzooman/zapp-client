@@ -10,7 +10,7 @@ export default function SearchForm() {
   const [query, setQuery] = useState('');
   const search: FormEventHandler = e => {
     e.preventDefault();
-    API.searchPosts({ limit: 10, offset: 0, query }).then(response => {
+    API.searchPosts({ limit: 10, page: 1, query }).then(response => {
       if (response.status !== 200) {
         alert(response.data);
         return;
