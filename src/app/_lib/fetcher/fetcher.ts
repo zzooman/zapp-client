@@ -72,7 +72,11 @@ export async function getPosts({ limit, offset }: GetPostsParams): Promise<Res<G
   }).then(handleResponse);
 }
 
-export async function searchPosts({ limit, offset, query }: GetPostsParams & { query: string }) {
+export async function searchPosts({
+  limit,
+  offset,
+  query,
+}: GetPostsParams & { query: string }): Promise<Res<GetPostResponse[]>> {
   return await fetch(`${API_URL}/posts/search?query=${query}&limit=${limit}&offset=${offset}`, {
     method: 'GET',
     headers: { 'Content-Type': 'application/json' },
