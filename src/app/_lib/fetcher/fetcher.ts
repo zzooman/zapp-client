@@ -5,6 +5,7 @@ import {
   CreatePostResponse,
   GetPostResponse,
   GetPostsParams,
+  GetSearchResponse,
   PostWithAuthor,
   Res,
   SearchTextResponse,
@@ -78,7 +79,7 @@ export async function searchPosts({
   limit,
   page,
   query,
-}: GetPostsParams & { query: string }): Promise<Res<GetPostResponse>> {
+}: GetPostsParams & { query: string }): Promise<Res<GetSearchResponse>> {
   return await fetch(`${API_URL}/posts/search?query=${query}&limit=${limit}&page=${page}`, {
     method: 'GET',
     headers: { 'Content-Type': 'application/json' },

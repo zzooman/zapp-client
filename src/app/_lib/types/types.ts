@@ -54,7 +54,6 @@ export interface GetPostsParams {
 export interface GetPostResponse {
   posts: PostWithAuthor[];
   next: boolean;
-  keyword?: string;
 }
 export interface PostWithAuthor {
   id: number;
@@ -67,6 +66,25 @@ export interface PostWithAuthor {
   views: number;
   created_at: string;
   isLiked: boolean;
+}
+export interface GetSearchResponse {
+  posts: PostWithAuthorRow[];
+  next: boolean;
+  keyword: string;
+}
+export interface PostWithAuthorRow {
+  id: number;
+  author: string;
+  title: string;
+  content: string;
+  medias: string[];
+  price: number;
+  stock: number;
+  views: number;
+  createdAt: string;
+  email: string;
+  phone: string | null;
+  profile: string | null;
 }
 export interface SearchTextResponse {
   id: number;

@@ -11,13 +11,17 @@ interface Params {
 }
 export default function PostList({ initialPosts }: Params) {
   const [posts, setPosts] = useState<PostWithAuthor[]>(initialPosts);
-  const page = useRef(1);
+  const [page, setPage] = useState(1);
+  const [next, setNext] = useState(true);
 
-  const next = useCallback(async () => {
-    const response = await API.getPosts({ limit: 10, page: ++page.current });
+  const more = useCallback(async () => {
+    if (!next) return;
+    const response = await API.getPosts({ limit: 10, page: page + 1 });
     if (response.status !== 200) return;
-    // setPosts(prev => prev.concat(response.data));
-  }, []);
+    setPosts([...posts, ...response.data.posts]);
+    setNext(response.data.next);
+    setPage(page + 1);
+  }, [page, next, setNext, setPosts, posts]);
 
   return (
     <div className="min-h-screen max-w-5xl w-full my-16">
@@ -26,7 +30,7 @@ export default function PostList({ initialPosts }: Params) {
           <Post post={post} key={i} />
         ))}
       </ul>
-      <Observer onShow={next} onHide={() => {}} />
+      <Observer onShow={more} onHide={() => {}} />
     </div>
   );
 }

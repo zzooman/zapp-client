@@ -17,13 +17,18 @@ export default async function SearchResultPage({ searchParams }: { searchParams:
             {res.data.posts.map((post, i) => (
               <Link href={`/post-detail/${post.id}`} key={i}>
                 <li className="relative flex gap-4 w-full h-32 py-4" key={i}>
-                  <Image
-                    src={post.medias[0]}
-                    width={100}
-                    height={100}
-                    className="rounded-sm object-cover"
-                    alt="image"
-                  ></Image>
+                  {post.medias[0].includes('mp4') ? (
+                    <video src={post.medias[0]} className="w-[100px] aspect-square rounded-sm object-cover" />
+                  ) : (
+                    <Image
+                      src={post.medias[0]}
+                      width={100}
+                      height={100}
+                      className="rounded-sm object-cover"
+                      alt="image"
+                    />
+                  )}
+
                   <div className="flex flex-col gap-1">
                     <h3 className="text-sm">{post.title}</h3>
                     <p className="text-xs">{post.content}</p>
