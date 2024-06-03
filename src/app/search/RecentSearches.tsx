@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
 export function RecentSearches() {
-  const [recentSearches, setRecentSearches] = useState<string[]>([]);
+  const [recentSearches, setRecentSearches] = useState<string[] | null>(null);
   useEffect(() => {
     setRecentSearches(JSON.parse(localStorage.getItem(`zapp-recent-searches`) ?? '[]'));
   }, [setRecentSearches]);
@@ -19,12 +19,14 @@ export function RecentSearches() {
 
   return (
     <section>
-      {recentSearches.length === 0 && <h2 className="font-bold text-sm mb-4">최근 검색어가 없습니다.</h2>}
-      {recentSearches.length > 0 && (
+      {recentSearches && recentSearches.length === 0 && (
+        <h2 className="font-bold text-sm mb-4">최근 검색어가 없습니다.</h2>
+      )}
+      {recentSearches && recentSearches.length > 0 && (
         <>
           <h2 className="font-bold text-sm mb-4">최근 검색어</h2>
           <ul className="flex flex-col gap-4">
-            {recentSearches.map((search, i) => (
+            {recentSearches.toReversed().map((search, i) => (
               <li className="flex justify-between items-center" key={i}>
                 <div className="flex gap-3 items-center">
                   <FontAwesomeIcon icon={faClock} className="h-3" />

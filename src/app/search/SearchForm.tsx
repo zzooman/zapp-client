@@ -17,6 +17,9 @@ export default function SearchForm() {
       }
       const recentSearches = JSON.parse(localStorage.getItem(`zapp-recent-searches`) ?? '[]');
       if (!recentSearches.includes(query)) {
+        if (recentSearches.length > 10) {
+          recentSearches.shift();
+        }
         recentSearches.push(query);
         localStorage.setItem(`zapp-recent-searches`, JSON.stringify(recentSearches));
       }
