@@ -92,3 +92,12 @@ export interface SearchTextResponse {
   count: number;
   created_at: string;
 }
+
+export interface Me {
+  username: string;
+  email: string;
+  phone: string;
+  profile: string | null;
+  created_at: string;
+  password_changed_at: string;
+}

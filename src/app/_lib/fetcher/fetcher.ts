@@ -6,6 +6,7 @@ import {
   GetPostResponse,
   GetPostsParams,
   GetSearchResponse,
+  Me,
   PostWithAuthor,
   Res,
   SearchTextResponse,
@@ -103,6 +104,14 @@ export async function getHotSearchTexts(): Promise<Res<SearchTextResponse[]>> {
   }).then(handleResponse);
 }
 
+export async function me(): Promise<Res<Me>> {
+  return await fetch(`${API_URL}/me`, {
+    method: 'GET',
+    headers: { 'Content-Type': 'application/json' },
+    credentials: 'include',
+  }).then(handleResponse);
+}
+
 const API = {
   signup,
   login,
@@ -112,5 +121,6 @@ const API = {
   toggleLikePost,
   searchPosts,
   getHotSearchTexts,
+  me,
 };
 export default API;

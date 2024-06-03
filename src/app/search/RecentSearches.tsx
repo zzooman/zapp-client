@@ -11,6 +11,7 @@ export function RecentSearches() {
   }, [setRecentSearches]);
 
   const removeRecentSearch = (search: string) => (e: any) => {
+    if (!recentSearches) return;
     e.preventDefault();
     const filtered = recentSearches.filter(s => s !== search);
     localStorage.setItem(`zapp-recent-searches`, JSON.stringify(filtered));
