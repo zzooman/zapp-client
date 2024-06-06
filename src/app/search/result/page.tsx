@@ -13,7 +13,7 @@ export default async function SearchResultPage({ searchParams }: { searchParams:
       <section className="mt-16">
         {res.data.posts.length === 0 && <h2 className="font-bold text-sm text-white">검색 결과가 없습니다.</h2>}
         {res.data.posts.length > 0 && (
-          <ul className="flex flex-col divide-y divide-slate-700 mt-10">
+          <ul className="flex flex-col divide-y divide-slate-700 my-10">
             {res.data.posts.map((post, i) => (
               <Link href={`/post-detail/${post.id}`} key={i}>
                 <li className="relative flex gap-4 w-full h-32 py-4" key={i}>

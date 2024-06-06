@@ -10,8 +10,9 @@ import { faComment, faFire, faHouse, faMagnifyingGlass, faUser } from '@fortawes
 import { usePathname } from 'next/navigation';
 
 export default function Footer() {
-  const path = usePathname();
   const [down, setDown] = useState(false);
+
+  const path = usePathname();
   const currentY = useRef(0);
 
   useEffect(() => {
