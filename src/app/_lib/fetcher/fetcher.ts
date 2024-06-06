@@ -1,3 +1,4 @@
+import { cookies } from 'next/headers';
 import { ILoginForm } from '@/app/login/loginForm';
 import { ISignupForm } from '@/app/signup/signupForm';
 import {
@@ -31,6 +32,12 @@ export async function handleResponse(res: Response) {
       data: String(error),
     };
   }
+}
+
+function setBearerToken(token: string) {
+  return {
+    Authorization: `Bearer ${token}`,
+  };
 }
 
 export async function signup(data: ISignupForm) {
@@ -112,6 +119,30 @@ export async function me(): Promise<Res<Me>> {
   }).then(handleResponse);
 }
 
+export async function postsILiked({ limit, page }: GetPostsParams) {
+  return await fetch(`${API_URL}/posts/liked?limit=${limit}&page=${page}`, {
+    method: 'GET',
+    headers: { 'Content-Type': 'application/json' },
+    credentials: 'include',
+  }).then(handleResponse);
+}
+
+export async function postsISold({ limit, page }: GetPostsParams) {
+  return await fetch(`${API_URL}/posts/sold?limit=${limit}&page=${page}`, {
+    method: 'GET',
+    headers: { 'Content-Type': 'application/json' },
+    credentials: 'include',
+  }).then(handleResponse);
+}
+
+export async function postsIBought({ limit, page }: GetPostsParams) {
+  return await fetch(`${API_URL}/posts/bought?limit=${limit}&page=${page}`, {
+    method: 'GET',
+    headers: { 'Content-Type': 'application/json' },
+    credentials: 'include',
+  }).then(handleResponse);
+}
+
 const API = {
   signup,
   login,
@@ -122,5 +153,8 @@ const API = {
   searchPosts,
   getHotSearchTexts,
   me,
+  postsILiked,
+  postsISold,
+  postsIBought,
 };
 export default API;

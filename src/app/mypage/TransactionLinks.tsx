@@ -13,7 +13,7 @@ export default function TransactionLinks() {
             <span>관심목록</span>
           </li>
         </Link>
-        <Link href="/mypage/sell-list">
+        <Link href="/mypage/sold-list">
           <li className="flex items-center gap-3">
             <FontAwesomeIcon icon={faTableList} />
             <span>판매내역</span>
