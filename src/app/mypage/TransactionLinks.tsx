@@ -19,7 +19,7 @@ export default function TransactionLinks() {
             <span>판매내역</span>
           </li>
         </Link>
-        <Link href="/mypage/bay-list">
+        <Link href="/mypage/buy-list">
           <li className="flex items-center gap-3">
             <FontAwesomeIcon icon={faBasketShopping} />
             <span>구매내역</span>
