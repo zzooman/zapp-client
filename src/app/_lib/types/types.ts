@@ -101,3 +101,13 @@ export interface Me {
   created_at: string;
   password_changed_at: string;
 }
+
+export interface EnterChatRoomParams {
+  user_a: string;
+  user_b: string;
+}
+
+export interface LoginResponse {
+  auth_token: string;
+  user: Me;
+}

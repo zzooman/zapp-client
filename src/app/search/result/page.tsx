@@ -1,8 +1,5 @@
 import SearchForm from '../SearchForm';
-import Image from 'next/image';
 import API from '@/app/_lib/fetcher/fetcher';
-import { currency } from '@/app/_lib/utils/utils';
-import Link from 'next/link';
 import PostRow from '@/app/_components/common/post/postRow';
 
 export default async function SearchResultPage({ searchParams }: { searchParams: { q: string } }) {

@@ -4,6 +4,7 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import API from '../_lib/fetcher/fetcher';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import { useCookies } from 'react-cookie';
 
 export interface ILoginForm {
   username: string;
@@ -12,9 +13,12 @@ export interface ILoginForm {
 
 export default function LoginForm() {
   const router = useRouter();
+  const [_, setCookie] = useCookies(['zapp_username']);
+
   const onSubmit: SubmitHandler<ILoginForm> = async data => {
     const res = await API.login(data);
     if (res.status === 200) {
+      setCookie('zapp_username', res.data.user.username);
       alert('로그인 성공');
       router.push('/');
     } else {
