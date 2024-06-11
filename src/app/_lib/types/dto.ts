@@ -1,4 +1,4 @@
-import { PostWithAuthorRow, User } from './types';
+import { PostWithAuthorRaw, User } from './types';
 
 export interface Res<T> {
   status: number;
@@ -53,7 +53,7 @@ export interface GetPostResponse {
 }
 
 export interface GetSearchResponse {
-  posts: PostWithAuthorRow[];
+  posts: PostWithAuthorRaw[];
   next: boolean;
   keyword: string;
 }

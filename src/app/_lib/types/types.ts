@@ -17,7 +17,7 @@ export interface User {
   profile: string | null;
 }
 
-export interface PostWithAuthorRow {
+export interface PostWithAuthorRaw {
   id: number;
   author: string;
   title: string;
