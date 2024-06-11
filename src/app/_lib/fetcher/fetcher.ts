@@ -11,7 +11,7 @@ import {
   LoginResponse,
   SearchTextResponse,
   MydataResponse,
-  EnterRoomResponse,
+  MakeRoomResponse,
 } from '../types/dto';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
@@ -139,13 +139,36 @@ export async function postsIBought({ limit, page }: GetPostsParams) {
   }).then(handleResponse);
 }
 
-export async function enterRoom(data: EnterChatRoomParams): Promise<Res<EnterRoomResponse>> {
+export async function makeRoom(data: EnterChatRoomParams): Promise<Res<MakeRoomResponse>> {
   return await fetch(`${API_URL}/room`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(data),
     credentials: 'include',
   }).then(handleResponse);
+}
+
+async function enterRoom(roomId: number, onMessage: WebSocket['onmessage']): Promise<WebSocket> {
+  const socketUrl = `${API_URL}/ws/${roomId}`;
+  return new Promise((resolve, reject) => {
+    const socket = new WebSocket(socketUrl);
+
+    socket.onopen = () => {
+      console.log('WebSocket connection established');
+      resolve(socket);
+    };
+
+    socket.onerror = error => {
+      console.log('WebSocket error:', error);
+      reject(error);
+    };
+
+    socket.onclose = () => {
+      console.log('WebSocket connection closed');
+    };
+
+    socket.onmessage = onMessage;
+  });
 }
 
 const API = {
@@ -161,6 +184,7 @@ const API = {
   postsILiked,
   postsISold,
   postsIBought,
+  makeRoom,
   enterRoom,
 };
 export default API;

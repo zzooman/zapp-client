@@ -75,7 +75,7 @@ export interface EnterChatRoomParams {
   user_b: string;
 }
 
-export interface EnterRoomResponse {
+export interface MakeRoomResponse {
   id: number;
   user_a: string;
   user_b: string;

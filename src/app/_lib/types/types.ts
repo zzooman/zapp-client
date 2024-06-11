@@ -31,3 +31,9 @@ export interface PostWithAuthorRaw {
   phone: string | null;
   profile: string | null;
 }
+
+export interface Chat {
+  sender: string;
+  message: string;
+  createdAt: string;
+}

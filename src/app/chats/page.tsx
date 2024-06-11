@@ -2,6 +2,10 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 export default function ChatsPage() {
+  // const socket = await API.enterRoom(response.data.id, (message: MessageEvent<string>) => {
+  //   const chat: Chat = JSON.parse(message.data);
+  // });
+  // socket.send(JSON.stringify({ sender: cookie.zapp_username, message: '안녕하세요' }));
   return (
     <main className="p-4">
       <ul className="mt-10 flex gap-2">

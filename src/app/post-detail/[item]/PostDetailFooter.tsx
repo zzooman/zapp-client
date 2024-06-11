@@ -31,11 +31,11 @@ export default function PostDetailFooter({ id, price, liked, author }: Props) {
   };
 
   const enterChatRoom = async () => {
-    const response = await API.enterRoom({
+    const response = await API.makeRoom({
       user_a: cookie.zapp_username,
       user_b: author,
     });
-    console.log(response);
+    if (response.status === 200) router.push(`/chats/${response.data.id}`);
   };
 
   return (
