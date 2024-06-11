@@ -17,7 +17,7 @@ interface Props {
   author: string;
 }
 export default function PostDetailFooter({ id, price, liked, author }: Props) {
-  const [cookie, _] = useCookies(['auth_token']);
+  const [cookie, _] = useCookies(['auth_token', 'zapp_username']);
   const router = useRouter();
 
   const [isLiked, setIsLiked] = useState(liked);
@@ -31,8 +31,8 @@ export default function PostDetailFooter({ id, price, liked, author }: Props) {
   };
 
   const enterChatRoom = async () => {
-    const response = await API.enterChatRoom({
-      user_a: cookie.auth_token,
+    const response = await API.enterRoom({
+      user_a: cookie.zapp_username,
       user_b: author,
     });
     console.log(response);

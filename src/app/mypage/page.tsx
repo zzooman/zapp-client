@@ -1,19 +1,19 @@
 'use client';
 import { useCallback, useEffect, useState } from 'react';
 import API from '../_lib/fetcher/fetcher';
-import { Me } from '../_lib/types/types';
 import { useRouter } from 'next/navigation';
 import { useCookies } from 'react-cookie';
 import ToProfile from './ToProfile';
 import TransactionLinks from './TransactionLinks';
+import { MydataResponse } from '../_lib/types/dto';
 
 export default function MypagePage() {
   const router = useRouter();
   const [cookie, _] = useCookies(['auth_token']);
-  const [me, setMe] = useState<Me>();
+  const [me, setMe] = useState<MydataResponse>();
 
   const fetchMe = useCallback(() => {
-    API.me().then(res => setMe(res.data));
+    API.mydata().then(res => setMe(res.data));
   }, []);
 
   useEffect(() => {

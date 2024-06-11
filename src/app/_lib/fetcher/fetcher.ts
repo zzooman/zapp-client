@@ -1,7 +1,7 @@
-import { cookies } from 'next/headers';
 import { ILoginForm } from '@/app/login/loginForm';
 import { ISignupForm } from '@/app/signup/signupForm';
 import {
+  Res,
   CreatePostParams,
   CreatePostResponse,
   EnterChatRoomParams,
@@ -9,11 +9,10 @@ import {
   GetPostsParams,
   GetSearchResponse,
   LoginResponse,
-  Me,
-  PostWithAuthor,
-  Res,
   SearchTextResponse,
-} from '../types/types';
+  MydataResponse,
+  EnterRoomResponse,
+} from '../types/dto';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 export async function handleResponse(res: Response) {
@@ -63,7 +62,7 @@ export async function post(data: CreatePostParams): Promise<Res<CreatePostRespon
   }).then(handleResponse);
 }
 
-export async function getPost(id: number): Promise<Res<PostWithAuthor>> {
+export async function getPost(id: number): Promise<Res<GetPostResponse>> {
   return await fetch(`${API_URL}/post/${id}`, {
     method: 'GET',
     headers: { 'Content-Type': 'application/json' },
@@ -108,7 +107,7 @@ export async function getHotSearchTexts(): Promise<Res<SearchTextResponse[]>> {
   }).then(handleResponse);
 }
 
-export async function me(): Promise<Res<Me>> {
+export async function mydata(): Promise<Res<MydataResponse>> {
   return await fetch(`${API_URL}/me`, {
     method: 'GET',
     headers: { 'Content-Type': 'application/json' },
@@ -140,7 +139,7 @@ export async function postsIBought({ limit, page }: GetPostsParams) {
   }).then(handleResponse);
 }
 
-export async function enterChatRoom(data: EnterChatRoomParams) {
+export async function enterRoom(data: EnterChatRoomParams): Promise<Res<EnterRoomResponse>> {
   return await fetch(`${API_URL}/room`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -158,10 +157,10 @@ const API = {
   toggleLikePost,
   searchPosts,
   getHotSearchTexts,
-  me,
+  mydata,
   postsILiked,
   postsISold,
   postsIBought,
-  enterChatRoom,
+  enterRoom,
 };
 export default API;
