@@ -12,6 +12,7 @@ import {
   SearchTextResponse,
   MydataResponse,
   MakeRoomResponse,
+  GetMessagesResponse,
 } from '../types/dto';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
@@ -148,7 +149,15 @@ export async function makeRoom(data: EnterChatRoomParams): Promise<Res<MakeRoomR
   }).then(handleResponse);
 }
 
-async function enterRoom(roomId: number, onMessage: WebSocket['onmessage']): Promise<WebSocket> {
+export async function getMessages(roomId: string): Promise<Res<GetMessagesResponse>> {
+  return await fetch(`${API_URL}/messages/${roomId}`, {
+    method: 'GET',
+    headers: { 'Content-Type': 'application/json' },
+    credentials: 'include',
+  }).then(handleResponse);
+}
+
+async function enterRoom(roomId: string, onMessage: WebSocket['onmessage']): Promise<WebSocket> {
   const socketUrl = `${API_URL}/ws/${roomId}`;
   return new Promise((resolve, reject) => {
     const socket = new WebSocket(socketUrl);
@@ -186,5 +195,6 @@ const API = {
   postsIBought,
   makeRoom,
   enterRoom,
+  getMessages,
 };
 export default API;

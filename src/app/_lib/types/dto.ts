@@ -90,3 +90,12 @@ export interface MydataResponse {
   created_at: string;
   password_changed_at: string;
 }
+
+export interface GetMessage {
+  created_at: string;
+  id: number;
+  message: string;
+  room_id: number;
+  sender: string;
+}
+export type GetMessagesResponse = GetMessage[];
