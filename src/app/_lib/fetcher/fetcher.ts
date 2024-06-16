@@ -13,6 +13,7 @@ import {
   MydataResponse,
   MakeRoomResponse,
   GetMessagesResponse,
+  GetRoomResponse,
 } from '../types/dto';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
@@ -180,6 +181,14 @@ async function enterRoom(roomId: string, onMessage: WebSocket['onmessage']): Pro
   });
 }
 
+async function allRooms(auth: string): Promise<Res<GetRoomResponse[]>> {
+  return await fetch(`${API_URL}/rooms/all/`, {
+    method: 'GET',
+    headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${auth}` },
+    credentials: 'include',
+  }).then(handleResponse);
+}
+
 const API = {
   signup,
   login,
@@ -196,5 +205,6 @@ const API = {
   makeRoom,
   enterRoom,
   getMessages,
+  allRooms,
 };
 export default API;

@@ -3,14 +3,14 @@ import Link from 'next/link';
 import { currency, mediasConvertor, timeLapse } from '@/app/_lib/utils/utils';
 import MediaSlider from '../common/swiper/MediaSlider';
 import PostAuthor from './Author';
-import { PostWithAuthor } from '@/app/_lib/types/types';
 
 import 'swiper/css';
 import 'swiper/css/pagination';
 import '@/css/swiper.css';
+import { GetPostResponse } from '@/app/_lib/types/dto';
 
 interface Props {
-  post: PostWithAuthor;
+  post: GetPostResponse;
 }
 
 export default function Post({ post }: Props) {

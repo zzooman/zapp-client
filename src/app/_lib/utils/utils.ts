@@ -11,7 +11,9 @@ export function currency(value: number): string {
 }
 export function timeLapse(createdAt: string) {
   const now = new Date();
+  createdAt = createdAt.slice(0, 19);
   const created = new Date(createdAt);
+
   const diff = now.getTime() - created.getTime();
   const diffDays = Math.floor(diff / (1000 * 60 * 60 * 24));
   const diffHours = Math.floor(diff / (1000 * 60 * 60));

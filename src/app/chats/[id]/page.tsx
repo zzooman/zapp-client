@@ -25,25 +25,22 @@ export default function ChatPage({ params }: { params: { id: string } }) {
       }
     })();
   }, [params.id]);
-  console.log('chats', chats);
+
   useEffect(() => {
     (async function fetchChat() {
-      const socket = await API.enterRoom(params.id, (message: MessageEvent<string>) => {
-        const chat: Chat = JSON.parse(message.data);
-        console.log('chat', chat);
+      const socket = await API.enterRoom(params.id, (messageEvent: MessageEvent<string>) => {
+        const [sender, message] = messageEvent.data.split(':');
+        if (sender === cookie.zapp_username) return;
+        const chat: Chat = {
+          message: message,
+          sender: sender,
+          createdAt: new Date().toISOString(),
+        };
         setChats(prev => [...prev, chat]);
       });
       setSocket(socket);
     })();
-  }, [setChats, params.id, setSocket]);
-
-  useEffect(() => {
-    return () => {
-      if (socket) {
-        socket.close();
-      }
-    };
-  }, [socket]);
+  }, [setChats, params.id, setSocket, cookie.zapp_username]);
 
   return (
     <main className="relative w-full p-4">

@@ -15,6 +15,7 @@ export default function ChatBar({ socket, setChats, username }: Params) {
     e.preventDefault();
     socket.send(message);
     setChats((prev: Chat[]) => [...prev, { message, sender: username, createdAt: new Date().toISOString() }]);
+    setMessage('');
   };
 
   return (

@@ -99,3 +99,11 @@ export interface GetMessage {
   sender: string;
 }
 export type GetMessagesResponse = GetMessage[];
+
+export interface GetRoomResponse {
+  room_id: number;
+  recipient: string;
+  last_message: string;
+  last_message_at: string;
+  unread_count: number;
+}
