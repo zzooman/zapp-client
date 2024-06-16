@@ -52,14 +52,14 @@ export default function ChatPage({ params }: { params: { id: string } }) {
           {chats.map(chat => {
             if (chat.sender === cookie.zapp_username) {
               return (
-                <li key={chat.createdAt} className="flex justify-end gap-2">
+                <li key={chat.createdAt} className="flex gap-2">
                   <p className="p-2 rounded-lg text-xs border border-slate-500">{chat.message}</p>
                   <div className="w-8 h-8 bg-gray-200 rounded-full" />
                 </li>
               );
             }
             return (
-              <li key={chat.createdAt} className="flex  gap-2">
+              <li key={chat.createdAt} className="flex  gap-2 justify-end">
                 <div className="w-8 h-8 bg-gray-200 rounded-full" />
                 <p className="p-2 rounded-lg text-xs border border-slate-500">{chat.message}</p>
               </li>
