@@ -30,7 +30,6 @@ export default function ChatPage({ params }: { params: { id: string } }) {
     (async function fetchChat() {
       const socket = await API.enterRoom(params.id, (messageEvent: MessageEvent<string>) => {
         const [sender, message] = messageEvent.data.split(':');
-        if (sender === cookie.zapp_username) return;
         const chat: Chat = {
           message: message,
           sender: sender,
@@ -64,7 +63,7 @@ export default function ChatPage({ params }: { params: { id: string } }) {
           })}
         </ul>
       </section>
-      <ChatBar socket={socket} setChats={setChats} username={cookie.zapp_username} />
+      <ChatBar socket={socket} />
     </main>
   );
 }

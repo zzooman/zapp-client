@@ -1,20 +1,16 @@
-import { Chat } from '@/app/_lib/types/types';
 import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Dispatch, FormEventHandler, SetStateAction, useState } from 'react';
+import { FormEventHandler, useState } from 'react';
 
 interface Params {
   socket: WebSocket | null;
-  setChats: Dispatch<SetStateAction<Chat[]>>;
-  username: string;
 }
-export default function ChatBar({ socket, setChats, username }: Params) {
+export default function ChatBar({ socket }: Params) {
   const [message, setMessage] = useState('');
   const onSubmit: FormEventHandler = e => {
     if (!socket) return;
     e.preventDefault();
     socket.send(message);
-    setChats((prev: Chat[]) => [...prev, { message, sender: username, createdAt: new Date().toISOString() }]);
     setMessage('');
   };
 
