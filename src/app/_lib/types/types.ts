@@ -1,3 +1,4 @@
+export type PostType = 'product' | 'feed';
 export interface Media {
   type: 'image' | 'video';
   url: string;

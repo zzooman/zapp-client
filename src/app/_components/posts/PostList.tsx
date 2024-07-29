@@ -1,16 +1,16 @@
 'use client';
 
-import { PostWithAuthor } from '@/app/_lib/types/types';
 import { useCallback, useRef, useState } from 'react';
 import Post from './Post';
 import Observer from '../common/Observer';
 import API from '@/app/_lib/fetcher/fetcher';
+import { GetPostResponse } from '@/app/_lib/types/dto';
 
 interface Params {
-  initialPosts: PostWithAuthor[];
+  initialPosts: GetPostResponse[];
 }
 export default function PostList({ initialPosts }: Params) {
-  const [posts, setPosts] = useState<PostWithAuthor[]>(initialPosts);
+  const [posts, setPosts] = useState<GetPostResponse[]>(initialPosts);
   const [page, setPage] = useState(1);
   const [next, setNext] = useState(true);
 

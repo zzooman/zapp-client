@@ -1,24 +1,23 @@
 'use client';
 
 import { MouseEventHandler, useCallback, useRef } from 'react';
-import { CreatePostParams, PostMedia } from '@/app/_lib/types/types';
-import PostTitle from '@/app/post/products/PostTitle';
-import UploadMedia from '@/app/post/products/UploadMedia';
-import ProductPrice from '@/app/post/products/ProductPrice';
-import PostContent from '@/app/post/products/PostContent';
-import PostButton from '@/app/post/products/PostButton';
+import { PostMedia } from '@/app/_lib/types/types';
+
 import API from '@/app/_lib/fetcher/fetcher';
-import ProductStock from './ProductStock';
 
 import AWS from 'aws-sdk';
 import { useRouter } from 'next/navigation';
+import UploadMedia from '../UploadMedia';
+import PostProductContent from './PostProductContent';
+import PostProductPrice from './PostProductPrice';
+import PostProductButton from './PostProductButton';
+import PostProductTitle from './PostProductTitle';
 
-export default function PostingPage() {
+export default function PostProductPage() {
   const mediaRef = useRef<PostMedia[]>([]);
   const titleRef = useRef<string>('');
   const priceRef = useRef<string>('');
   const contentRef = useRef<string>('');
-  const stock = useRef<number>(1);
 
   const router = useRouter();
 
@@ -29,7 +28,6 @@ export default function PostingPage() {
         title: titleRef.current,
         content: contentRef.current,
         price: priceRef.current,
-        stock: stock.current,
       };
 
       AWS.config.update({
@@ -51,7 +49,7 @@ export default function PostingPage() {
       });
 
       const medias = await Promise.all(mideasPromise);
-      const posting: CreatePostParams = {
+      const posting = {
         ...postingState,
         medias,
       };
@@ -66,11 +64,10 @@ export default function PostingPage() {
   return (
     <form className="flex flex-col justify-start space-y-6 pt-16 mb-28 px-4 h-screen">
       <UploadMedia ref={mediaRef} />
-      <PostTitle ref={titleRef} />
-      <ProductPrice ref={priceRef} />
-      <ProductStock ref={stock} />
-      <PostContent ref={contentRef} />
-      <PostButton onSubmit={onSubmit} />
+      <PostProductTitle ref={titleRef} />
+      <PostProductPrice ref={priceRef} />
+      <PostProductContent ref={contentRef} />
+      <PostProductButton onSubmit={onSubmit} />
     </form>
   );
 }
