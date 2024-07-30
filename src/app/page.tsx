@@ -1,4 +1,4 @@
-import ButtonCreateFeed from '@/app/_components/common/ButtonCreateFeed';
+import ButtonCreatePost from '@/app/_components/common/ButtonCreatePost';
 import Container from '@/app/_components/common/Container';
 import Footer from '@/app/_components/common/footer/Footer';
 
@@ -13,7 +13,7 @@ export default async function HomePage() {
       <main className="flex justify-center min-h-screen h-max w-full m-auto overflow-y-auto">
         <PostList initialPosts={posts.data.posts} />
       </main>
-      <ButtonCreateFeed show />
+      <ButtonCreatePost show />
       <Footer />
     </Container>
   );

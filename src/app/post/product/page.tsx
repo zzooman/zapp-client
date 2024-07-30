@@ -10,7 +10,7 @@ import { useRouter } from 'next/navigation';
 import UploadMedia from '../UploadMedia';
 import PostProductContent from './PostProductContent';
 import PostProductPrice from './PostProductPrice';
-import PostProductButton from './PostProductButton';
+import PostButton from '../PostButton';
 import PostProductTitle from './PostProductTitle';
 
 export default function PostProductPage() {
@@ -67,7 +67,7 @@ export default function PostProductPage() {
       <PostProductTitle ref={titleRef} />
       <PostProductPrice ref={priceRef} />
       <PostProductContent ref={contentRef} />
-      <PostProductButton onSubmit={onSubmit} />
+      <PostButton onSubmit={onSubmit} />
     </form>
   );
 }

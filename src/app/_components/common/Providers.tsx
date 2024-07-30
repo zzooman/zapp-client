@@ -3,6 +3,7 @@
 import { ReactNode } from 'react';
 import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
 import OverlayProvider from '@/app/_lib/hooks/useOverlay/OverlayProvider';
+import { RecoilRoot } from 'recoil';
 
 interface Props {
   children: ReactNode;
@@ -10,8 +11,10 @@ interface Props {
 const queryClient = new QueryClient({});
 export default function Providers({ children }: Props) {
   return (
-    <QueryClientProvider client={queryClient}>
-      <OverlayProvider>{children}</OverlayProvider>
-    </QueryClientProvider>
+    <RecoilRoot>
+      <QueryClientProvider client={queryClient}>
+        <OverlayProvider>{children}</OverlayProvider>
+      </QueryClientProvider>
+    </RecoilRoot>
   );
 }

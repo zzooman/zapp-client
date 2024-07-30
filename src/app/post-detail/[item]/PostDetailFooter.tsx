@@ -1,5 +1,6 @@
 'use client';
 
+import { authState } from '@/app/_lib/atom/auth';
 import API from '@/app/_lib/fetcher/fetcher';
 import { currency } from '@/app/_lib/utils/utils';
 import { faHeart as lineHeart } from '@fortawesome/free-regular-svg-icons';
@@ -8,7 +9,7 @@ import { faHeart as fullHeart } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
-import { useCookies } from 'react-cookie';
+import { useRecoilValue } from 'recoil';
 
 interface Props {
   id: number;
@@ -17,7 +18,7 @@ interface Props {
   author: string;
 }
 export default function PostDetailFooter({ id, price, liked, author }: Props) {
-  const [cookie, _] = useCookies(['auth_token', 'zapp_username']);
+  const auth = useRecoilValue(authState);
   const router = useRouter();
 
   const [isLiked, setIsLiked] = useState(liked);
@@ -32,7 +33,7 @@ export default function PostDetailFooter({ id, price, liked, author }: Props) {
 
   const enterChatRoom = async () => {
     const response = await API.makeRoom({
-      user_a: cookie.zapp_username,
+      user_a: auth.username,
       user_b: author,
     });
     if (response.status === 200) router.push(`/chats/${response.data.id}`);

@@ -4,10 +4,11 @@ import { useEffect, useState } from 'react';
 import ChatBar from './ChatBar';
 import API from '@/app/_lib/fetcher/fetcher';
 import { Chat } from '@/app/_lib/types/types';
-import { useCookies } from 'react-cookie';
+import { useRecoilValue } from 'recoil';
+import { authState } from '@/app/_lib/atom/auth';
 
 export default function ChatPage({ params }: { params: { id: string } }) {
-  const [cookie, _] = useCookies(['zapp_username']);
+  const auth = useRecoilValue(authState);
 
   const [socket, setSocket] = useState<WebSocket | null>(null);
   const [chats, setChats] = useState<Chat[]>([]);
@@ -39,14 +40,14 @@ export default function ChatPage({ params }: { params: { id: string } }) {
       });
       setSocket(socket);
     })();
-  }, [setChats, params.id, setSocket, cookie.zapp_username]);
+  }, [setChats, params.id, setSocket]);
 
   return (
     <main className="relative w-full p-4">
       <section>
         <ul className="flex flex-col gap-2">
           {chats.map(chat => {
-            if (chat.sender === cookie.zapp_username) {
+            if (chat.sender === auth.username) {
               return (
                 <li key={chat.createdAt} className="flex gap-2">
                   <p className="p-2 rounded-lg text-xs border border-slate-500">{chat.message}</p>
