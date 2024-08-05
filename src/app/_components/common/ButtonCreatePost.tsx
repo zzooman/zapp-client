@@ -61,10 +61,16 @@ export default function ButtonCreatePost({ show }: Props) {
             duration: 0.1,
           }}
         >
-          <div className="flex justify-center items-center bg-point-500 p-2 min-w-max w-20" onClick={go('feed')}>
+          <div
+            className="flex justify-center items-center bg-point-500 p-2 min-w-max w-20 cursor-pointer"
+            onClick={go('feed')}
+          >
             글쓰기
           </div>
-          <div className="flex justify-center items-center bg-point-500 p-2 min-w-max w-20" onClick={go('product')}>
+          <div
+            className="flex justify-center items-center bg-point-500 p-2 min-w-max w-20 cursor-pointer"
+            onClick={go('product')}
+          >
             물건 팔기
           </div>
         </motion.div>

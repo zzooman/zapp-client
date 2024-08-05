@@ -107,3 +107,17 @@ export interface GetRoomResponse {
   last_message_at: string;
   unread_count: number;
 }
+
+export interface CreateFeedParams {
+  content: string;
+  medias: string[];
+}
+
+export interface CreateFeedResponse {
+  id: number;
+  author: string;
+  content: string;
+  medias: string[];
+  views: number;
+  created_at: string;
+}

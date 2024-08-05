@@ -7,7 +7,7 @@ import { useRouter } from 'next/navigation';
 export default function BackBtn() {
   const router = useRouter();
   return (
-    <div className="flex justify-center items-center w-10 aspect-square" onClick={() => router.back()}>
+    <div className="flex justify-center items-center w-10 aspect-square cursor-pointer" onClick={() => router.back()}>
       <FontAwesomeIcon icon={faChevronLeft} className="text-white" />
     </div>
   );
