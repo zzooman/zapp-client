@@ -2,10 +2,7 @@ import { ILoginForm } from '@/app/login/loginForm';
 import { ISignupForm } from '@/app/signup/signupForm';
 import {
   Res,
-  CreatePostParams,
-  CreatePostResponse,
   EnterChatRoomParams,
-  GetPostResponse,
   GetPostsParams,
   GetSearchResponse,
   LoginResponse,
@@ -16,6 +13,12 @@ import {
   GetRoomResponse,
   CreateFeedParams,
   CreateFeedResponse,
+  CreateProductParams,
+  CreateProductResponse,
+  GetProductResponse,
+  GetProductsResponse,
+  GetFeedsResponse,
+  GetFeedDetailResponse,
 } from '../types/dto';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
@@ -57,8 +60,8 @@ export async function login(data: ILoginForm): Promise<Res<LoginResponse>> {
   }).then(handleResponse);
 }
 
-export async function createPost(data: CreatePostParams): Promise<Res<CreatePostResponse>> {
-  return await fetch(`${API_URL}/post`, {
+export async function createProduct(data: CreateProductParams): Promise<Res<CreateProductResponse>> {
+  return await fetch(`${API_URL}/product`, {
     method: 'POST',
     body: JSON.stringify(data),
     headers: { 'Content-Type': 'application/json' },
@@ -66,16 +69,33 @@ export async function createPost(data: CreatePostParams): Promise<Res<CreatePost
   }).then(handleResponse);
 }
 
-export async function getPost(id: number): Promise<Res<GetPostResponse>> {
-  return await fetch(`${API_URL}/post/${id}`, {
+export async function getProduct(id: number): Promise<Res<GetProductResponse>> {
+  return await fetch(`${API_URL}/product/${id}`, {
     method: 'GET',
     headers: { 'Content-Type': 'application/json' },
     credentials: 'include',
   }).then(handleResponse);
 }
 
-export async function getPosts({ limit, page }: GetPostsParams): Promise<Res<GetPostResponse>> {
-  return await fetch(`${API_URL}/posts?limit=${limit}&page=${page}`, {
+export async function getFeed(id: number): Promise<Res<GetFeedDetailResponse>> {
+  return await fetch(`${API_URL}/feed/${id}`, {
+    method: 'GET',
+    headers: { 'Content-Type': 'application/json' },
+    credentials: 'include',
+  }).then(handleResponse);
+}
+
+export async function getProducts({ limit, page }: GetPostsParams): Promise<Res<GetProductsResponse>> {
+  return await fetch(`${API_URL}/products?limit=${limit}&page=${page}`, {
+    method: 'GET',
+    headers: { 'Content-Type': 'application/json' },
+    credentials: 'include',
+    cache: 'no-store',
+  }).then(handleResponse);
+}
+
+export async function getFeeds({ limit, page }: GetPostsParams): Promise<Res<GetFeedsResponse>> {
+  return await fetch(`${API_URL}/feeds?limit=${limit}&page=${page}`, {
     method: 'GET',
     headers: { 'Content-Type': 'application/json' },
     credentials: 'include',
@@ -203,9 +223,9 @@ export async function createFeed(data: CreateFeedParams): Promise<Res<CreateFeed
 const API = {
   signup,
   login,
-  createPost,
-  getPost,
-  getPosts,
+  createProduct,
+  getProduct,
+  getProducts,
   toggleLikePost,
   searchPosts,
   getHotSearchTexts,
@@ -218,5 +238,7 @@ const API = {
   getMessages,
   allRooms,
   createFeed,
+  getFeed,
+  getFeeds,
 };
 export default API;

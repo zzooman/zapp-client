@@ -53,7 +53,7 @@ export default function PostProductPage() {
         ...postingState,
         medias,
       };
-      const response = await API.createPost(posting);
+      const response = await API.createProduct(posting);
       if (response.status !== 200) return alert(response.data);
       alert('게시물이 성공적으로 등록되었습니다.');
       router.push('/');

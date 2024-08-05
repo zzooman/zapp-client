@@ -1,12 +1,11 @@
 import Container from '@/app/_components/common/Container';
+import Header from '@/app/_components/common/header/Header';
 import { PropsWithChildren } from 'react';
-import PostDetailFooter from './PostDetailFooter';
-import PostDetailHeader from './PostDetailHeader';
 
 export default function PostDetailLayout({ children }: PropsWithChildren) {
   return (
     <Container>
-      <PostDetailHeader />
+      <Header back />
       {children}
     </Container>
   );

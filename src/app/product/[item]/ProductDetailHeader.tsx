@@ -4,7 +4,7 @@ import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useRouter } from 'next/navigation';
 
-export default function PostDetailHeader() {
+export default function ProductDetailHeader() {
   const router = useRouter();
 
   return (

@@ -7,7 +7,7 @@ import 'swiper/css/pagination';
 import API from '@/app/_lib/fetcher/fetcher';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
-import PostDetailFooter from './PostDetailFooter';
+import PostDetailFooter from './ProductDetailFooter';
 
 interface Params {
   params: {

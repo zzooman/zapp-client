@@ -1,3 +1,4 @@
+import { bool } from 'aws-sdk/clients/signer';
 import { PostWithAuthorRaw, User } from './types';
 
 export interface Res<T> {
@@ -5,14 +6,13 @@ export interface Res<T> {
   data: T;
 }
 
-export interface GetPostResponse {
+export interface GetProductResponse {
   id: number;
-  author: User;
+  seller: User;
   title: string;
   content: string;
   medias: string[];
   price: number;
-  stock: number;
   views: number;
   created_at: string;
   isLiked: boolean;
@@ -25,30 +25,28 @@ export interface S3UploadResponse {
   ETag: string;
 }
 
-export interface CreatePostParams {
+export interface CreateProductParams {
   title: string;
   content: string;
   price: string;
-  stock: number;
   medias: string[];
 }
-export interface CreatePostResponse {
-  author: string;
+export interface CreateProductResponse {
+  seller: string;
   title: string;
   content: string;
   created_at: unknown;
   id: number;
   medias: string[];
   price: number;
-  stock: number;
   views: number;
 }
 export interface GetPostsParams {
   limit: number;
   page: number;
 }
-export interface GetPostResponse {
-  posts: GetPostResponse[];
+export interface GetProductsResponse {
+  products: GetProductResponse[];
   next: boolean;
 }
 
@@ -120,4 +118,43 @@ export interface CreateFeedResponse {
   medias: string[];
   views: number;
   created_at: string;
+}
+
+export interface Author {
+  username: string;
+  email: string;
+  phone: string;
+  profile: string | null;
+}
+
+export interface GetFeedsResponse {
+  next: bool;
+  feeds: GetFeedResponse[];
+}
+
+export interface GetFeedResponse {
+  id: number;
+  content: string;
+  medias: string[];
+  views: number;
+  created_at: string;
+  author: Author;
+  isLiked: boolean;
+  comments: number;
+}
+
+export interface GetFeedDetailResponse {
+  id: number;
+  content: string;
+  medias: string[];
+  views: number;
+  created_at: string;
+  author: {
+    username: string;
+    email: string;
+    phone: string;
+    profile: string | null;
+  };
+  isLiked: boolean;
+  comments: unknown[];
 }

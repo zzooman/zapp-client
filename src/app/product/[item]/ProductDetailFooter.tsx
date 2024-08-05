@@ -17,7 +17,7 @@ interface Props {
   liked: boolean;
   author: string;
 }
-export default function PostDetailFooter({ id, price, liked, author }: Props) {
+export default function ProductDetailFooter({ id, price, liked, author }: Props) {
   const auth = useRecoilValue(authState);
   const router = useRouter();
 

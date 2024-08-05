@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { faComment as lineComment, faUser as lineUser } from '@fortawesome/free-regular-svg-icons';
-import { faComment, faFire, faHouse, faMagnifyingGlass, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faBoxOpen, faComment, faHouse, faMagnifyingGlass, faUser } from '@fortawesome/free-solid-svg-icons';
 import { usePathname } from 'next/navigation';
 
 export default function Footer() {
@@ -44,11 +44,11 @@ export default function Footer() {
           <Link href="/">
             <FontAwesomeIcon icon={faHouse} color={path === '/' ? '#fff' : '#555'} />
           </Link>
+          <Link href="/products">
+            <FontAwesomeIcon icon={faBoxOpen} color={path.includes('products') ? '#fff' : '#555'} />
+          </Link>
           <Link href="/search">
             <FontAwesomeIcon icon={faMagnifyingGlass} color={path.includes('search') ? '#fff' : '#555'} />
-          </Link>
-          <Link href="/hot">
-            <FontAwesomeIcon icon={faFire} color={path === '/hot' ? '#fff' : '#555'} />
           </Link>
           <Link href="/chats">
             <FontAwesomeIcon
