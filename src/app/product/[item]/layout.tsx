@@ -1,11 +1,11 @@
 import Container from '@/app/_components/common/Container';
 import { PropsWithChildren } from 'react';
-import PostDetailHeader from './ProductDetailHeader';
+import Header from '@/app/_components/common/header/Header';
 
-export default function PostDetailLayout({ children }: PropsWithChildren) {
+export default function ProductDetailLayout({ children }: PropsWithChildren) {
   return (
     <Container>
-      <PostDetailHeader />
+      <Header back />
       {children}
     </Container>
   );

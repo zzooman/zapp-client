@@ -91,6 +91,9 @@ export async function getProducts({ limit, page }: GetPostsParams): Promise<Res<
     headers: { 'Content-Type': 'application/json' },
     credentials: 'include',
     cache: 'no-store',
+    next: {
+      tags: ['products'],
+    },
   }).then(handleResponse);
 }
 
@@ -100,6 +103,9 @@ export async function getFeeds({ limit, page }: GetPostsParams): Promise<Res<Get
     headers: { 'Content-Type': 'application/json' },
     credentials: 'include',
     cache: 'no-store',
+    next: {
+      tags: ['feeds'],
+    },
   }).then(handleResponse);
 }
 

@@ -7,26 +7,26 @@ import 'swiper/css/pagination';
 import API from '@/app/_lib/fetcher/fetcher';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
-import PostDetailFooter from './ProductDetailFooter';
+import ProductDetailFooter from './ProductDetailFooter';
 
 interface Params {
   params: {
     item: string;
   };
 }
-export default async function PostDetailPage({ params }: Params) {
-  const post = await API.getPost(parseInt(params.item));
+export default async function ProductDetailPage({ params }: Params) {
+  const post = await API.getProduct(parseInt(params.item));
 
   return (
     <>
       <main>
-        <section className="mb-16">
+        <section>
           <MediaSlider medias={mediasConvertor(post.data.medias)} aspectRatio="1/1" objectFit="cover" />
           <article className="flex justify-between items-center p-3 border-b border-b-slate-800">
             <div className="flex items-center">
-              {post.data.author.profile ? (
+              {post.data.seller.profile ? (
                 <Image
-                  src={post.data.author.profile ?? ''}
+                  src={post.data.seller.profile ?? ''}
                   width={30}
                   height={30}
                   className="rounded-full aspect-square object-cover"
@@ -38,7 +38,7 @@ export default async function PostDetailPage({ params }: Params) {
                   <FontAwesomeIcon icon={faUser} className="text-slate-400" />
                 </div>
               )}
-              <span className="ml-2 text-sm text-slate-300">{post.data.author.username}</span>
+              <span className="ml-2 text-sm text-slate-300">{post.data.seller.username}</span>
             </div>
           </article>
           <article className="flex flex-col px-4 mt-3">
@@ -52,11 +52,11 @@ export default async function PostDetailPage({ params }: Params) {
           </article>
         </section>
       </main>
-      <PostDetailFooter
+      <ProductDetailFooter
         id={post.data.id}
         liked={post.data.isLiked}
         price={post.data.price}
-        author={post.data.author.username}
+        seller={post.data.seller.username}
       />
     </>
   );

@@ -19,6 +19,7 @@ export default function ButtonCreatePost({ show }: Props) {
   const auth = useRecoilValue(authState);
 
   const go = (type: PostType) => () => {
+    console.log('auth', auth);
     if (!auth.token) {
       alert('로그인이 필요합니다.');
       return router.push('/login');

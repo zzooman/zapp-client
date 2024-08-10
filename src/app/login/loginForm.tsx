@@ -21,6 +21,7 @@ export default function LoginForm() {
     if (res.status === 200) {
       setAuth(prev => ({
         ...prev,
+        token: res.data.auth_token,
         username: res.data.user.username,
       }));
       alert('로그인 성공');

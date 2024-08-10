@@ -5,14 +5,17 @@ import { useSetRecoilState } from 'recoil';
 
 interface Props {
   token: string;
+  username: string;
 }
-export default function Personalizer({ token, children }: PropsWithChildren<Props>) {
+export default function Personalizer({ token, username, children }: PropsWithChildren<Props>) {
   const setAuth = useSetRecoilState(authState);
+
   useEffect(() => {
     setAuth(prev => ({
       ...prev,
       token,
+      username,
     }));
-  }, [setAuth, token]);
+  }, [setAuth, token, username]);
   return <React.Fragment>{children}</React.Fragment>;
 }

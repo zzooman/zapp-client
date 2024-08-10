@@ -24,7 +24,7 @@ export default function ProductList({ inintialProducts }: Params) {
   }, [page, next, setNext, setProducts, products]);
 
   return (
-    <div className="min-h-screen max-w-5xl w-full my-16">
+    <div className="min-h-screen max-w-5xl w-full mt-4 mb-16">
       <ul className="flex flex-col space-y-3">
         {products?.map((product, i) => (
           <Product product={product} key={i} />

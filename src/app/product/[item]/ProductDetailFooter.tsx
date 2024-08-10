@@ -15,9 +15,9 @@ interface Props {
   id: number;
   price: number;
   liked: boolean;
-  author: string;
+  seller: string;
 }
-export default function ProductDetailFooter({ id, price, liked, author }: Props) {
+export default function ProductDetailFooter({ id, price, liked, seller }: Props) {
   const auth = useRecoilValue(authState);
   const router = useRouter();
 
@@ -34,7 +34,7 @@ export default function ProductDetailFooter({ id, price, liked, author }: Props)
   const enterChatRoom = async () => {
     const response = await API.makeRoom({
       user_a: auth.username,
-      user_b: author,
+      user_b: seller,
     });
     if (response.status === 200) router.push(`/chats/${response.data.id}`);
   };
@@ -47,9 +47,11 @@ export default function ProductDetailFooter({ id, price, liked, author }: Props)
         </div>
         <strong>{currency(price)}원</strong>
       </div>
-      <button className="rounded-md bg-point-400 py-2 px-4 text-sm font-bold" onClick={enterChatRoom}>
-        채팅하기
-      </button>
+      {auth.username !== seller && (
+        <button className="rounded-md bg-point-400 py-2 px-4 text-sm font-bold" onClick={enterChatRoom}>
+          채팅하기
+        </button>
+      )}
     </footer>
   );
 }
