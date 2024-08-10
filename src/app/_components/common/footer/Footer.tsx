@@ -41,22 +41,22 @@ export default function Footer() {
     >
       <Container>
         <nav className="flex justify-around items-center h-16" onClick={() => setDown(false)}>
-          <Link href="/">
+          <Link href="/" className="w-full flex justify-center items-center">
             <FontAwesomeIcon icon={faHouse} color={path === '/' ? '#fff' : '#555'} />
           </Link>
-          <Link href="/products">
+          <Link href="/products" className="w-full flex justify-center items-center">
             <FontAwesomeIcon icon={faBoxOpen} color={path.includes('products') ? '#fff' : '#555'} />
           </Link>
-          <Link href="/search">
+          <Link href="/search" className="w-full flex justify-center items-center">
             <FontAwesomeIcon icon={faMagnifyingGlass} color={path.includes('search') ? '#fff' : '#555'} />
           </Link>
-          <Link href="/chats">
+          <Link href="/chats" className="w-full flex justify-center items-center">
             <FontAwesomeIcon
               icon={path.includes('chats') ? faComment : lineComment}
               color={path.includes('chats') ? '#fff' : '#555'}
             />
           </Link>
-          <Link href="/mypage">
+          <Link href="/mypage" className="w-full flex justify-center items-center">
             <FontAwesomeIcon
               icon={path === '/mypage' ? faUser : lineUser}
               color={path === '/mypage' ? '#fff' : '#555'}
