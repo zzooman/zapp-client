@@ -51,8 +51,8 @@ export default function SearchResultList({ feeds, products }: Props) {
       </article>
 
       <article>
-        {tab === 'feed' && <FeedResultList feeds={feeds.data.feeds} />}
-        {tab === 'product' && <ProductResultList products={products.data.products} />}
+        {tab === 'feed' && <FeedResultList initialData={feeds.data} />}
+        {tab === 'product' && <ProductResultList initialData={products.data} />}
       </article>
     </section>
   );

@@ -31,7 +31,7 @@ export function RecentSearches() {
               <li className="flex justify-between items-center" key={i}>
                 <div className="flex gap-3 items-center">
                   <FontAwesomeIcon icon={faClock} className="h-3" />
-                  <Link href={`/search/result?q=${search}`}>{search}</Link>
+                  <Link href={`/search/result?q=${search}&tab=feed`}>{search}</Link>
                 </div>
 
                 <FontAwesomeIcon icon={faXmark} className="cusor-pointer" onClick={removeRecentSearch(search)} />

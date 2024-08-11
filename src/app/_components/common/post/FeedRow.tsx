@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { mediasConvertor, timeLapse } from '@/app/_lib/utils/utils';
+import { timeLapse } from '@/app/_lib/utils/utils';
 
 import 'swiper/css';
 import 'swiper/css/pagination';

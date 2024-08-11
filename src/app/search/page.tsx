@@ -22,7 +22,7 @@ export default async function SearchPage({ searchParams }: { searchParams: Recor
                 <ul className="flex w-max h-max gap-3 mt-2 overflow-auto">
                   {hotSearchTexts.map((search, i) => (
                     <li key={i} className="border border-slate-500 text-white px-3 py-1 rounded-full text-sm">
-                      <Link href={`/search/result?q=${search.search_text}`}>{search.search_text}</Link>
+                      <Link href={`/search/result?q=${search.search_text}&tab=feed`}>{search.search_text}</Link>
                     </li>
                   ))}
                 </ul>
