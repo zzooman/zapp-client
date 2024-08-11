@@ -21,8 +21,11 @@ export default async function FeedDetailPage({ params }: Params) {
     <main>
       <section className="flex flex-col gap-4 my-16">
         {feed.data.medias.filter(Boolean).length > 0 && (
-          <MediaSlider medias={mediasConvertor(feed.data.medias)} aspectRatio="1/1" objectFit="cover" />
+          <div className="w-full h-max p-4">
+            <MediaSlider medias={mediasConvertor(feed.data.medias)} aspectRatio="1/1" objectFit="cover" rouneded />
+          </div>
         )}
+
         <article className="flex justify-between items-center px-4">
           <div className="flex items-center gap-2">
             {feed.data.author.profile ? (

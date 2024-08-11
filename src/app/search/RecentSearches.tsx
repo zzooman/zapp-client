@@ -28,14 +28,16 @@ export function RecentSearches() {
           <h2 className="font-bold text-sm mb-4">최근 검색어</h2>
           <ul className="flex flex-col gap-4">
             {recentSearches.toReversed().map((search, i) => (
-              <li className="flex justify-between items-center" key={i}>
-                <div className="flex gap-3 items-center">
-                  <FontAwesomeIcon icon={faClock} className="h-3" />
-                  <Link href={`/search/result?q=${search}&tab=feed`}>{search}</Link>
-                </div>
+              <Link href={`/search/result?q=${search}&tab=feed`} key={i}>
+                <li className="flex justify-between items-center w-full">
+                  <div className="flex gap-3 items-center">
+                    <FontAwesomeIcon icon={faClock} className="h-3" />
+                    {search}
+                  </div>
 
-                <FontAwesomeIcon icon={faXmark} className="cusor-pointer" onClick={removeRecentSearch(search)} />
-              </li>
+                  <FontAwesomeIcon icon={faXmark} className="cusor-pointer" onClick={removeRecentSearch(search)} />
+                </li>
+              </Link>
             ))}
           </ul>
         </>

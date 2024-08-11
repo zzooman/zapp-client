@@ -12,8 +12,9 @@ interface Props {
   medias: Omit<Media, 'file'>[];
   objectFit?: 'contain' | 'cover' | 'fill' | 'none' | 'scale-down';
   aspectRatio?: '16/9' | '4/3' | '1/1' | '3/4' | '9/16';
+  rouneded?: boolean;
 }
-export default function MediaSlider({ medias, objectFit, aspectRatio }: Props) {
+export default function MediaSlider({ medias, objectFit, aspectRatio, rouneded }: Props) {
   return (
     <Swiper
       modules={[Pagination, A11y]}
@@ -21,7 +22,12 @@ export default function MediaSlider({ medias, objectFit, aspectRatio }: Props) {
       loop
       pagination={{ clickable: true }}
       scrollbar={{ draggable: true }}
-      style={{ width: '100%', maxHeight: '50vh', aspectRatio: aspectRatio ?? '16/9' }}
+      style={{
+        width: '100%',
+        maxHeight: '50vh',
+        aspectRatio: aspectRatio ?? '16/9',
+        borderRadius: rouneded ? '8px' : '',
+      }}
       // onSwiper={swiper => console.log(swiper)}
       // onSlideChange={() => console.log('slide change')}
     >

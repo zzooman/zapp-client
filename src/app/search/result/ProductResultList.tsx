@@ -30,6 +30,7 @@ export default function ProductResultList({ initialData }: Props) {
 
   return (
     <ul>
+      {products.length === 0 && <div className="mt-8">검색된 상품이 없습니다.</div>}
       {products.map((product, i) => (
         <ProductRow product={product} key={i} />
       ))}

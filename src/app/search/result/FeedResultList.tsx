@@ -31,6 +31,7 @@ export default function FeedResultList({ initialData }: Props) {
 
   return (
     <ul className="flex flex-col space-y-3 divide-y-[0.5px] divide-gray-700">
+      {feeds.length === 0 && <div className="mt-8">검색된 게시글이 없습니다.</div>}
       {feeds.map((feed, i) => (
         <FeedRow feed={feed} key={i} />
       ))}
