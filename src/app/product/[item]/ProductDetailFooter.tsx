@@ -33,8 +33,8 @@ export default function ProductDetailFooter({ id, price, liked, seller }: Props)
 
   const enterChatRoom = async () => {
     const response = await API.makeRoom({
-      user_a: auth.username,
-      user_b: seller,
+      host: auth.username,
+      guest: seller,
     });
     if (response.status === 200) router.push(`/chats/${response.data.id}`);
   };

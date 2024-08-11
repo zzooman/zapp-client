@@ -75,14 +75,14 @@ export interface LoginResponse {
 }
 
 export interface EnterChatRoomParams {
-  user_a: string;
-  user_b: string;
+  host: string;
+  guest: string;
 }
 
 export interface MakeRoomResponse {
   id: number;
-  user_a: string;
-  user_b: string;
+  host: string;
+  guest: string;
   created_at: string;
 }
 

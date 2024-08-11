@@ -21,6 +21,7 @@ import {
   GetSearchProductsResponse,
   GetSearchFeedsResponse,
 } from '../types/dto';
+import { ChatType } from '@/app/chats/ChatTypeTab';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 export async function handleResponse(res: Response) {
@@ -222,10 +223,10 @@ async function enterRoom(roomId: string, onMessage: WebSocket['onmessage']): Pro
   });
 }
 
-async function allRooms(auth: string): Promise<Res<GetRoomResponse[]>> {
-  return await fetch(`${API_URL}/rooms/all/`, {
+async function getRooms(type: ChatType): Promise<Res<GetRoomResponse[]>> {
+  return await fetch(`${API_URL}/rooms/${type}`, {
     method: 'GET',
-    headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${auth}` },
+    headers: { 'Content-Type': 'application/json' },
     credentials: 'include',
   }).then(handleResponse);
 }
@@ -256,7 +257,7 @@ const API = {
   makeRoom,
   enterRoom,
   getMessages,
-  allRooms,
+  getRooms,
   createFeed,
   getFeed,
   getFeeds,

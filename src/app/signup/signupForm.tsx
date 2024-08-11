@@ -6,10 +6,10 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 
 export interface ISignupForm {
   username: string;
-  email: string;
-  phone: string;
   password: string;
-  passwordConfirm: string;
+  // passwordConfirm: string;
+  // email: string;
+  // phone: string;
 }
 
 export default function SignupForm() {
@@ -46,7 +46,7 @@ export default function SignupForm() {
         />
       </div>
 
-      <div className="flex">
+      {/* <div className="flex">
         <input
           className="bg-transparent border-b border-b-slate-400 w-full text-slate-50 h-10"
           id="passwordConfirm"
@@ -73,7 +73,7 @@ export default function SignupForm() {
           placeholder="이메일"
           {...register('email', { required: true, maxLength: 64, pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i })}
         />
-      </div>
+      </div> */}
 
       <button type="submit" className="absolute left-0 bottom-0 w-full bg-point-400 h-10 rounded-sm cursor-pointer">
         회원가입

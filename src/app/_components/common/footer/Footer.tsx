@@ -50,7 +50,7 @@ export default function Footer() {
           <Link href="/search" className="w-full flex justify-center items-center">
             <FontAwesomeIcon icon={faMagnifyingGlass} color={path.includes('search') ? '#fff' : '#555'} />
           </Link>
-          <Link href="/chats" className="w-full flex justify-center items-center">
+          <Link href="/chats?tab=all" className="w-full flex justify-center items-center">
             <FontAwesomeIcon
               icon={path.includes('chats') ? faComment : lineComment}
               color={path.includes('chats') ? '#fff' : '#555'}
