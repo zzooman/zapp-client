@@ -1,5 +1,5 @@
 import { bool } from 'aws-sdk/clients/signer';
-import { PostWithAuthorRaw, User } from './types';
+import { FeedWithAuthorRaw, ProductWithSellerRaw, User } from './types';
 
 export interface Res<T> {
   status: number;
@@ -50,8 +50,14 @@ export interface GetProductsResponse {
   next: boolean;
 }
 
-export interface GetSearchResponse {
-  posts: PostWithAuthorRaw[];
+export interface GetSearchProductsResponse {
+  products: ProductWithSellerRaw[];
+  next: boolean;
+  keyword: string;
+}
+
+export interface GetSearchFeedsResponse {
+  feeds: FeedWithAuthorRaw[];
   next: boolean;
   keyword: string;
 }

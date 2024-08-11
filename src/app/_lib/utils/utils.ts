@@ -36,3 +36,7 @@ export function mediasConvertor(medias: string[]): Media[] {
     url,
   }));
 }
+
+export function cls(...classNames: string[]) {
+  return classNames.join(' ');
+}

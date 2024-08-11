@@ -1,31 +1,36 @@
 'use client';
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useRouter } from 'next/navigation';
-import { FormEventHandler, useState } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
+import { FormEventHandler, useEffect, useState } from 'react';
 import API from '../_lib/fetcher/fetcher';
 
 export default function SearchForm() {
   const router = useRouter();
+  const qs = useSearchParams();
   const [query, setQuery] = useState('');
+
   const search: FormEventHandler = e => {
     e.preventDefault();
-    API.searchPosts({ limit: 10, page: 1, query }).then(response => {
-      if (response.status !== 200) {
-        alert(response.data);
-        return;
-      }
-      const recentSearches = JSON.parse(localStorage.getItem(`zapp-recent-searches`) ?? '[]');
-      if (!recentSearches.includes(query)) {
-        if (recentSearches.length > 10) {
-          recentSearches.shift();
-        }
-        recentSearches.push(query);
-        localStorage.setItem(`zapp-recent-searches`, JSON.stringify(recentSearches));
-      }
-      router.push(`/search/result?q=${query}`);
-    });
+    handleRecentSearch();
+    router.push(`/search/result?q=${query}&tab=feed`);
   };
+
+  const handleRecentSearch = () => {
+    const recentSearches = JSON.parse(localStorage.getItem(`zapp-recent-searches`) ?? '[]');
+    if (!recentSearches.includes(query)) {
+      if (recentSearches.length > 10) {
+        recentSearches.shift();
+      }
+      recentSearches.push(query);
+      localStorage.setItem(`zapp-recent-searches`, JSON.stringify(recentSearches));
+    }
+  };
+
+  useEffect(() => {
+    const query = qs.get('q');
+    if (query) setQuery(query);
+  }, [qs]);
 
   return (
     <section className="fixed left-[50%] top-0 transform -translate-x-[50%] w-full max-w-3xl p-4 z-30 bg-base">

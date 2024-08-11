@@ -4,7 +4,6 @@ import {
   Res,
   EnterChatRoomParams,
   GetPostsParams,
-  GetSearchResponse,
   LoginResponse,
   SearchTextResponse,
   MydataResponse,
@@ -19,6 +18,8 @@ import {
   GetProductsResponse,
   GetFeedsResponse,
   GetFeedDetailResponse,
+  GetSearchProductsResponse,
+  GetSearchFeedsResponse,
 } from '../types/dto';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
@@ -109,12 +110,24 @@ export async function getFeeds({ limit, page }: GetPostsParams): Promise<Res<Get
   }).then(handleResponse);
 }
 
-export async function searchPosts({
+export async function searchFeeds({
   limit,
   page,
   query,
-}: GetPostsParams & { query: string }): Promise<Res<GetSearchResponse>> {
-  return await fetch(`${API_URL}/posts/search?query=${query}&limit=${limit}&page=${page}`, {
+}: GetPostsParams & { query: string }): Promise<Res<GetSearchFeedsResponse>> {
+  return await fetch(`${API_URL}/feeds/search?query=${query}&limit=${limit}&page=${page}`, {
+    method: 'GET',
+    headers: { 'Content-Type': 'application/json' },
+    credentials: 'include',
+  }).then(handleResponse);
+}
+
+export async function searchProducts({
+  limit,
+  page,
+  query,
+}: GetPostsParams & { query: string }): Promise<Res<GetSearchProductsResponse>> {
+  return await fetch(`${API_URL}/products/search?query=${query}&limit=${limit}&page=${page}`, {
     method: 'GET',
     headers: { 'Content-Type': 'application/json' },
     credentials: 'include',
@@ -145,24 +158,24 @@ export async function mydata(): Promise<Res<MydataResponse>> {
   }).then(handleResponse);
 }
 
-export async function postsILiked({ limit, page }: GetPostsParams) {
-  return await fetch(`${API_URL}/posts/liked?limit=${limit}&page=${page}`, {
+export async function productsILiked({ limit, page }: GetPostsParams) {
+  return await fetch(`${API_URL}/products/liked?limit=${limit}&page=${page}`, {
     method: 'GET',
     headers: { 'Content-Type': 'application/json' },
     credentials: 'include',
   }).then(handleResponse);
 }
 
-export async function postsISold({ limit, page }: GetPostsParams) {
-  return await fetch(`${API_URL}/posts/sold?limit=${limit}&page=${page}`, {
+export async function productsISold({ limit, page }: GetPostsParams) {
+  return await fetch(`${API_URL}/products/sold?limit=${limit}&page=${page}`, {
     method: 'GET',
     headers: { 'Content-Type': 'application/json' },
     credentials: 'include',
   }).then(handleResponse);
 }
 
-export async function postsIBought({ limit, page }: GetPostsParams) {
-  return await fetch(`${API_URL}/posts/bought?limit=${limit}&page=${page}`, {
+export async function productsIBought({ limit, page }: GetPostsParams) {
+  return await fetch(`${API_URL}/products/bought?limit=${limit}&page=${page}`, {
     method: 'GET',
     headers: { 'Content-Type': 'application/json' },
     credentials: 'include',
@@ -233,12 +246,13 @@ const API = {
   getProduct,
   getProducts,
   toggleLikePost,
-  searchPosts,
+  searchFeeds,
+  searchProducts,
   getHotSearchTexts,
   mydata,
-  postsILiked,
-  postsISold,
-  postsIBought,
+  productsILiked,
+  productsISold,
+  productsIBought,
   makeRoom,
   enterRoom,
   getMessages,

@@ -17,9 +17,9 @@ export interface User {
   profile: string | null;
 }
 
-export interface PostWithAuthorRaw {
+export interface ProductWithSellerRaw {
   id: number;
-  author: string;
+  seller: string;
   title: string;
   content: string;
   medias: string[];
@@ -29,6 +29,18 @@ export interface PostWithAuthorRaw {
   createdAt: string;
   email: string;
   phone: string | null;
+  profile: string | null;
+}
+
+export interface FeedWithAuthorRaw {
+  id: number;
+  author: string;
+  content: string;
+  medias: string[];
+  views: number;
+  created_at: string;
+  email: string;
+  phone: string;
   profile: string | null;
 }
 

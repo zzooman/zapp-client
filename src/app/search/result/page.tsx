@@ -1,22 +1,21 @@
 import SearchForm from '../SearchForm';
 import API from '@/app/_lib/fetcher/fetcher';
-import PostRow from '@/app/_components/common/post/postRow';
+import { redirect } from 'next/navigation';
+import SearchResultList from './SearchResultList';
 
 export default async function SearchResultPage({ searchParams }: { searchParams: { q: string } }) {
-  const res = await API.searchPosts({ limit: 10, page: 1, query: searchParams.q });
+  const feeds = await API.searchFeeds({ limit: 10, page: 1, query: searchParams.q });
+  const products = await API.searchProducts({ limit: 10, page: 1, query: searchParams.q });
+
+  if (feeds.data.feeds.length === 0 && products.data.products.length === 0) {
+    redirect(`/search?no-result=true&keyword=${searchParams.q}`);
+  }
 
   return (
     <main className="p-4">
       <SearchForm />
       <section className="mt-16">
-        {res.data.posts.length === 0 && <h2 className="font-bold text-sm text-white">검색 결과가 없습니다.</h2>}
-        {res.data.posts.length > 0 && (
-          <ul className="flex flex-col divide-y divide-slate-700 my-10">
-            {res.data.posts.map((post, i) => (
-              <PostRow key={i} post={post} />
-            ))}
-          </ul>
-        )}
+        <SearchResultList feeds={feeds} products={products} />
       </section>
     </main>
   );

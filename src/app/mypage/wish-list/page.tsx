@@ -1,21 +1,23 @@
 'use client';
-import PostRow from '@/app/_components/common/post/postRow';
+
+import ProductRow from '@/app/_components/common/post/ProductRow';
 import API from '@/app/_lib/fetcher/fetcher';
-import { PostWithAuthor } from '@/app/_lib/types/types';
+import { ProductWithSellerRaw } from '@/app/_lib/types/types';
+
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
-export default function LikedListPage() {
-  const [posts, setPosts] = useState<PostWithAuthor[]>([]);
+export default function WishListPage() {
+  const [products, setProducts] = useState<ProductWithSellerRaw[]>([]);
   const [loading, setLoading] = useState(true);
 
   const router = useRouter();
 
   useEffect(() => {
-    API.postsILiked({ limit: 10, page: 1 })
+    API.productsILiked({ limit: 10, page: 1 })
       .then(res => {
         if (res.status === 200) {
-          setPosts(res.data);
+          setProducts(res.data);
         } else {
           alert(res.data);
           router.push('/');
@@ -26,10 +28,10 @@ export default function LikedListPage() {
 
   return (
     <main className="p-4">
-      {!loading && posts?.length === 0 && <p className="mt-32 w-full text-center">관심상품이 없습니다.</p>}
+      {!loading && products?.length === 0 && <p className="mt-32 w-full text-center">관심상품이 없습니다.</p>}
       <ul className="flex flex-col divide-y divide-slate-700 my-10">
-        {posts?.map((post, i) => (
-          <PostRow key={i} post={post} />
+        {products?.map((product, i) => (
+          <ProductRow key={i} product={product} />
         ))}
       </ul>
     </main>
